@@ -6,19 +6,16 @@ Start building pages instantly with [liquidjs](https://github.com/harttle/liquid
 
 ## What's included?
 * **Zero-configuration required**. [Just start coding]().
-* Maintain your [website content using files and folders]().
+* Maintain your [content using files and folders]().
 * [Live preview your site locally]() and watch for file changes.
 * Use *for* and *if* to [code your pages dynamically]() based on input data.
-* Include *page layouts* and *partials* to [build your site in reusable small pieces](). 
-* Use spreadsheets as database by [automatically make webpages using a CSV file]().
+* Include *layouts* and *includes* to [build your pages in reusable small pieces](). 
+* Use spreadsheets as database by [automatically make pages using a CSV file]().
 
 ## Instalation
 
-## Just Start Coding
 
-Forgot about server configuration, prebuilders, minificators and databases.
-
-## Database-Free: Using Files and Folders as Data Input
+## Folder structure basics
 
 ```
 /media
@@ -31,7 +28,31 @@ Forgot about server configuration, prebuilders, minificators and databases.
  ↳ Files will be parsed as SASS/SCSS, minized and compiled to an Asset.
  
 /slugs
- ↳ Files and folders will be compile slug names into HTML files to be accesed via URL.
+ ↳ Files and folders will be compile Slug names into HTML files to be accesed via URL.
 ```
 
-## Using Input Data in Pages
+## Just Start Coding
+
+Forget about server configuration, prebuilders, minificators and databases.
+
+## Database-Free: Use Files and Folders as Data Input
+
+```
+/data
+ ↳ Files will be parsed as CSV and used as input data for your pages.
+```
+
+## Use Input Data in Views
+
+## Templates With Page Partials
+
+```
+/layouts
+ ↳ Files used as layouts to be used on your page files or to print out a CSV file.
+ 
+/includes
+ ↳ Files to be include on your page files.
+```
+
+## Build Web Pages From a Csv File
+
