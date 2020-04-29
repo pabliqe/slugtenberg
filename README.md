@@ -22,16 +22,16 @@ Forget about server configuration, prebuilders, minificators and databases.
 Slug Files and Folders as Site Pages
 
 ```
-/media
+/src/media
  ↳ Image, icon, video and sound files will be compiled to the Asset folder.
  
-/scripts
+/src/scripts
  ↳ Files will be parsed as Javascript (ECMA6) minized and compiled to an Asset.
  
-/styles
+/src/styles
  ↳ Files will be parsed as SASS/SCSS, minized and compiled to an Asset.
  
-/slugs
+/src/slugs
  ↳ Files and folders will be compile Slug names into HTML files to be accesed via URL.
 ```
 
@@ -46,16 +46,16 @@ Slug Files and Folders as Data Input
 ## Templating with Page Partials
 
 ```
-/layouts
+/src/layouts
  ↳ Files used as layouts to be used on your page files or to print out a CSV file.
  
-/includes
+/src/includes
  ↳ Files to be include on your page files.
 ```
 
 ## Building Pages From a Csv File
 
 ```
-/data
+/src/data
  ↳ Files will be parsed as CSV and used as input data for your pages.
 ```
