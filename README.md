@@ -15,7 +15,7 @@ Start building pages instantly with [liquidjs](https://github.com/harttle/liquid
 ## Getting started
 
 
-## Just Start Coding
+## Folder startucture basics
 
 Forget about server configuration, prebuilders, minificators and databases.
 
