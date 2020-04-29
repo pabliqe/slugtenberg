@@ -1,0 +1,46 @@
+{
+	"name": "slugtenberg",
+	"homepage": "https://github.com/owner/project#readme",
+	"license": "MIT",
+	"version": "0.0.1",
+	"description": "gulpfile.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/pabliqe/slugtenberg"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.8.6",
+		"@babel/preset-env": "^7.8.6",
+		"@tuanpham-dev/gulp-liquidjs": "git+https://github.com/pabliqe/gulp-liquidjs.git",
+		"browser-sync": "^2.26.7",
+		"csv-parser": "^2.3.2",
+		"extend": "^3.0.2",
+		"fancy-log": "^1.3.3",
+		"fs": "^0.0.1-security",
+		"glob": "^7.1.6",
+		"gulp": "^4.0.2",
+		"gulp-babel": "^8.0.0",
+		"gulp-chmod": "^3.0.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-data": "^1.3.1",
+		"gulp-if": "^3.0.0",
+		"gulp-jshint": "^2.1.0",
+		"gulp-markdown": "^5.0.1",
+		"gulp-rename": "^2.0.0",
+		"gulp-sass": "^4.0.2",
+		"gulp-uglify": "^3.0.2",
+		"jshint": "^2.11.0",
+		"markdown-it": "^10.0.0",
+		"merge-stream": "^2.0.0",
+		"path": "^0.12.7",
+		"require-dir": "^1.2.0",
+		"yaml": "^1.9.2",
+		"yargs": "^14.2.0"
+	},
+	"scripts": {
+		"build": "gulp build",
+		"start": "gulp server:start",
+		"reload": "gulp server:reload",
+		"watch": "gulp watch"
+	}
+}
