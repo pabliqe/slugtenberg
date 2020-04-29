@@ -7,10 +7,10 @@ Start building pages instantly with [liquidjs](https://github.com/harttle/liquid
 ## What's included?
 * **Zero-configuration required**. [Just start coding]().
 * Maintain your content [using files and folders as data]().
-* [Live preview your site locally]() and watch for file changes.
 * Use *for* and *if* to [code your pages dynamically]() based on input data.
 * Include *layouts* and *includes* to [build your pages in reusable small pieces](). 
 * Use spreadsheets as database by [automatically make pages using a CSV file]().
+* [Live preview your site locally]() and watch for file changes.
 
 ## Instalation
 
