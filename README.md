@@ -12,10 +12,14 @@ Start building pages instantly with [liquidjs](https://github.com/harttle/liquid
 * Use spreadsheets as database by [automatically make pages using a CSV file]().
 * [Live preview your site locally]() and watch for file changes.
 
-## Instalation
+## Getting started
 
 
-## Folder structure basics
+## Just Start Coding
+
+Forget about server configuration, prebuilders, minificators and databases.
+
+Slug Files and Folders as Site Pages
 
 ```
 /media
@@ -31,20 +35,15 @@ Start building pages instantly with [liquidjs](https://github.com/harttle/liquid
  ↳ Files and folders will be compile Slug names into HTML files to be accesed via URL.
 ```
 
-## Just Start Coding
+## Database-Free
 
-Forget about server configuration, prebuilders, minificators and databases.
+Slug Files and Folders as Data Input
 
-## Database-Free: Use Files and Folders as Data Input
 
-```
-/data
- ↳ Files will be parsed as CSV and used as input data for your pages.
-```
+## Using Data on your Pages
 
-## Use Input Data in Views
 
-## Templates With Page Partials
+## Templating with Page Partials
 
 ```
 /layouts
@@ -54,5 +53,9 @@ Forget about server configuration, prebuilders, minificators and databases.
  ↳ Files to be include on your page files.
 ```
 
-## Build Web Pages From a Csv File
+## Building Pages From a Csv File
 
+```
+/data
+ ↳ Files will be parsed as CSV and used as input data for your pages.
+```
