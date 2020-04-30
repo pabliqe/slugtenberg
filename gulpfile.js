@@ -34,7 +34,7 @@ task('build', series(
 
 task('watch', () => {
 	watch([
-		'src/data/**/*+(' + config.typeTemplate + ')',
+		'src/data/**/*+(' + config.typeData + ')',
 		'src/includes/**/*+(' + config.typeTemplate + ')',
 		'src/layouts/**/*+(' + config.typeTemplate + ')',
 		'src/slugs/**/*+(' + config.typeTemplate + '|' + config.typeData + ')'],

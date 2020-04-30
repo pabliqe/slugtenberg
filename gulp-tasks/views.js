@@ -13,7 +13,8 @@ const concat = require('gulp-concat')
 const chmod = require('gulp-chmod')
 
 /* Parsers */
-const csv = require('csv-parser')
+//const csv = require('csv-parser')
+const csv = require('csv-parse/lib/sync')
 const liquid = require('@tuanpham-dev/gulp-liquidjs')
 const md = require('markdown-it')({
 	html: true,
@@ -137,9 +138,10 @@ function parseSlugFiles(slug, type) {
 		default:
 		case 'data':
 			// Parse JSON and append...
-			let df = glob.sync('src/slugs/**/' + slug + '+(' + config.typeData + ')') // Matches slug file
-			if(df.length)
-				output = parseDatafile(df[0])
+			glob.sync('src/slugs/**/' + slug + '+(' + config.typeData + ')') // Matches slug file
+				.forEach((v,i,a) => {
+					extend(output, parseDataFile(v));
+				})
 			break
 	}
 
@@ -151,15 +153,9 @@ function makeSlug(str) {
 
 	return str
 		.trim()
-		//.replace(/_/g, '--')
-		//.replace(/\s/g, '-')
-		//.toLowerCase()
-		//.replace(/[\<\>\[\]\(\)¿\?\¡\!\%\"|'\+]/g, '')
 		.replace(/_/g, '--')
 		.replace(/ /g, '_')
-		/* https://www.regextester.com/94757 */
 		.replace(/[^A-Za-z0-9\-\_\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff]/g, '')
-		//.toLowerCase()
 }
 
 function unmakeSlug(str) {
@@ -214,76 +210,73 @@ function parseMarkdownFile(file) {
 	return parseMarkdown(fs.readFileSync(file, "utf8"))
   }
 
-function parseDatafile(file) {
+function parseDataFile(file, options) {
+	if(!options)
+		options = {}
+
 	switch(getFileExt(file)) {
 		case 'json':
 			return JSON.parse(fs.readFileSync(file, 'utf-8'))
 		
 		case 'yml':
 			return yaml.parse(fs.readFileSync(file, 'utf-8'))
+		
+		case 'csv':
+			return csv(fs.readFileSync(file, 'utf-8'), options)
 	}
 }
 
 function loadCsvFile(file) {
 	log('▶︎▶︎▶︎ Loading data from «' + file + '»')
 
-	let dataDir = 'src/data'
-	let fileConfig = {
+	let fileOptions = {
 		name: getFileName(file)
 	}
 
-	glob.sync(dataDir + '/' + fileConfig.name + '.yml')
+	glob.sync(path.dirname(file) + '/' + fileOptions.name + '.yml')
 		.forEach((v,i,a) => {
-			extend(fileConfig, parseDatafile(v));
+			extend(fileOptions, parseDataFile(v));
 		
-			log('Data config found', fileConfig);
+			log('Data config found', fileOptions);
 		});
-	
-	fs.createReadStream(dataDir + '/' + file)
-		.pipe(csv({
-			mapHeaders: ({ header, index }) => {
-				return makeSlug(header)
-			},
-			mapValues: ({ header, index, value }) => {
-				if('columns' in fileConfig && header in fileConfig.columns) {
-					if(!value) {
-						value = ''
 
-					} else if(fileConfig.columns[header].type == 'array') {
-						value = String(value).split(',')
+	LOADED_DATA[fileOptions.name] = parseDataFile(file, {
+		columns: (header) => {
+			return header.map((h) => makeSlug(h))
+		},
+		cast: (value, context) => {
+			if('columns' in fileOptions && context.header in fileOptions.columns) {
+				if(!value)
+					value = ''
+
+				else if(fileOptions.columns[context.header].type == 'array')
+					value = String(value).split(',')
+			}
+			
+			return value
+		}
+	});;
+
+	log('CSV data loaded: ' + LOADED_DATA[fileOptions.name].length)
+
+	if(fileOptions.use_layout) {
+		LOADED_DATA[fileOptions.name].forEach((v,i,a) => {
+			v.slug = makeSlug((i + 1) + '-' + v[fileOptions.column_slug]);
+
+			src('src/layouts/' + fileOptions.use_layout + '+(' + config.typeTemplate + ')')
+				.pipe(rename((f) => log('▶︎▶︎▶︎ Building view@data: ' + fileOptions.name + '/' + v.slug)))
+				.pipe(data((f) => {
+					return {
+						current: extendSlug(v),
+						config: config,
+						data: LOADED_DATA
 					}
-				}
-				
-				return value
-			}
-		}))
-		.on('data', (d) => {
-			if(!(fileConfig.name in LOADED_DATA))
-				LOADED_DATA[fileConfig.name] = new Array()
-
-			LOADED_DATA[fileConfig.name].push(d)
+				}))
+				.pipe(liquid(ENGINE_OPTS))
+				.pipe(rename(v.slug + '.html'))
+				.pipe(dest(config.outputPath + '/' + fileOptions.name))
 		})
-		.on('end', function() {
-			log('Data loaded: ' + LOADED_DATA[fileConfig.name].length)
-
-			if(fileConfig.use_layout) {
-				LOADED_DATA[fileConfig.name].forEach((v,i,a) => {
-					v.slug = makeSlug((i + 1) + '-' + v[fileConfig.column_slug]);
-
-					src('src/layouts/' + fileConfig.use_layout + '+(' + config.typeTemplate + ')')
-						.pipe(data((f) => {
-							return {
-								current: extendSlug(v),
-								config: config,
-								data: LOADED_DATA
-							}
-						}))
-						.pipe(liquid(ENGINE_OPTS))
-						.pipe(rename(v.slug + '.html'))
-						.pipe(dest(config.outputPath + '/' + fileConfig.name))
-				})
-			}
-		})
+	}
 }
 
 /* ——————————————————— INITIALIZER —————————————————————— */
@@ -291,7 +284,7 @@ function loadCsvFile(file) {
 module.exports = () => {
 	
 	// Append global data files
-	glob.sync('src/data/**/*.csv')
+	glob.sync('src/data/**/*' + config.typeDataSheet)
 		.forEach((v,i,a) => loadCsvFile(v))
 	
 	return src([

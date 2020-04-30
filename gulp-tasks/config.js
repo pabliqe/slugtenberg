@@ -15,7 +15,8 @@ module.exports = extend({
 	typeTemplate: '.html|.liquid',
 	typeContent: '.md|.markdown',
 	typeData: '.json|.yml',
+	typeDataSheet: '.csv',
 	typeStyle: '.scss|.sass',
 	typeScript: '.js',
-	typeMedia: '.jpg|.jpeg|.png|.mp4|.gif'
+	typeMedia: '.jpg|.jpeg|.png|.mp4|.gif',
 }, config)
