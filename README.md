@@ -57,19 +57,19 @@ Start a new file in the desired folder and Just Start Coding™️.
  ↳ HTML/Liquid files will be used as layouts other pages or to print out CSV files.
  
 /src/includes
- ↳ HTML/Liquid files to be included on your pages.
+ ↳ Any kind of file to be included on your pages.
  
 /src/media
- ↳ Images, icons, videos and sounds will be copied to the Asset folder.
+ ↳ Images, icons, videos and sounds will be copied to the public Assets folder.
  
 /src/scripts
- ↳ Javascript files will be parsed as ECMA6, minized and compiled to an unified Asset file.
+ ↳ Javascript files will be parsed as ECMA6, minized and compiled to an unified public Asset file.
  
 /src/slugs
  ↳ Files and folders will be compile into the Slug system: HTML/Liquid compiles to HTML files; JSON, YML, Markdown and media files are attached as data.
  
 /src/styles
- ↳ CSS files will be parsed as SASS/SCSS, minized and compiled to an unified Asset file.
+ ↳ CSS files will be parsed as SASS/SCSS, minized and compiled to an unified public Asset file.
 ```
 
 ## Database-Free
