@@ -4,7 +4,7 @@ The fastest and simplest way to build static websites in minutes with basic auto
 ## Why Slugtenberg?
 Slugtenberg was designed to help you build *clean and scalable* websites from scratch in the least time possible. Saving you time by not configuring servers, databases and infinite library packages but keeping the benefits of using dynamic data and logic on static pages.
 
-Said that, Slugtenberg template system trust on HTML semantics empowered with a handlebar language `{}` to inject variables, conditionals and iterations from Markdown, JSON, YML, CSV and media files.
+Said that, Slugtenberg template system trust on HTML semantics powered with a handlebar language `{}` to inject variables, conditionals and iterations from Markdown, JSON, YML, CSV and media files.
 
 ## What it can do?
 * **Zero-configuration required**. Just Start Coding™️.
