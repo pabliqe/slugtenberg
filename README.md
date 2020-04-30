@@ -22,7 +22,7 @@ This instructions assume you have **Node** ([steps](https://nodejs.org/es/downlo
  ```
  clone https://github.com/pabliqe/slugtenberg.git ./slugtenberg
  ```
-3. Enter project folder using
+3. Enter project folder
  ```
  cd slugtenberg
  ```
@@ -30,7 +30,7 @@ This instructions assume you have **Node** ([steps](https://nodejs.org/es/downlo
  ```
  npm install -D
  ```
-5. Build demo project using
+5. Build demo project
  ```
  gulp build --dev
  ```
@@ -69,7 +69,7 @@ Start a new file in the desired folder and Just Start Coding™️.
 
 ## Database-Free
 
-Files and folders are the backbones of our Slug system. Names are used to link internally views, media and information to an unique URL Slug for public access.
+Files and folders are the backbones of our Slug system. Filenames are used to internally link views, media and information to an unique URL Slug for public access.
 
 Each time you create a page file ending on `.html|.liquid` Slugtenberg will automatically attach any data or media file that share the same folder and/or name. This way, if you have `/src/slugs/index.liquid`, you can create an `index.json` or `index.yml` to handle data for that specific page inside.
 
