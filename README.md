@@ -17,7 +17,8 @@ Said that, Slugtenberg template system trust on HTML semantics powered with a ha
 ## Getting started
 This instructions assume you have **Node** ([steps](https://nodejs.org/es/download/)) and **Gulp** ([steps](https://gulpjs.com/docs/en/getting-started/quick-start/)) installed and updated on your machine.
 
-1. Open your favorite Terminal (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
+1. Open your favorite Terminal
+(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
 2. Clone or download this repository
  ```
  clone https://github.com/pabliqe/slugtenberg.git ./slugtenberg
@@ -42,9 +43,10 @@ This instructions assume you have **Node** ([steps](https://nodejs.org/es/downlo
  ```
  http://localhost:3000
  ```
-8. Enjoy ( ͡ᵔ ͜ʖ ͡ᵔ )
+8. Enjoy
+( ͡ᵔ ͜ʖ ͡ᵔ )
 
-## Folder Structure Basis
+## Folder Structure Basics
 Start a new file in the desired folder and Just Start Coding™️.
 
 ```
