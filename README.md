@@ -7,7 +7,7 @@ Slugtenberg was designed to help you build *clean and scalable* websites from sc
 Said that, Slugtenberg template system trust on HTML semantics empowered with a handlebar `{}` language to inject variables, conditionals and iterations from Markdown, JSON, YML, CSV and other files.
 
 ## What it can do?
-* **Zero-configuration required**. Just start coding.
+* **Zero-configuration required**. Just Start Coding™️.
 * Maintain your content using files and folders as data.
 * Use *conditionals* and *iterations* to create your pages dynamically based on input data.
 * Include *layouts* and *partials* to build your pages in reusable small pieces. 
@@ -41,22 +41,8 @@ This instructions assume you have **Node** ([steps](https://nodejs.org/es/downlo
 7. Browser will popup with your site running on `http://localhost:3000`
 8. Enjoy ( ͡ᵔ ͜ʖ ͡ᵔ )
 
-## Base Folder Structure
-
-```
-/dist
-/dist-dev
- ↳ Output files will be printed here based.
- 
-/gulp-tasks
- ↳ Files added here will be converted to command-line tasks to run using gulp.
- 
-/config.yml
-/config-dev.yml
- ↳ Configuration data files attached to every page.
-```
-
-## Source Folder Structure
+## Folder Structure Basis
+Start a new file in the desired folder and Just Start Coding™️.
 
 ```
 /src/data/
@@ -83,17 +69,27 @@ This instructions assume you have **Node** ([steps](https://nodejs.org/es/downlo
 
 ## Database-Free
 
-Files and folders are the backbones of our slug system, using names to link internally views, media and information to an uniqe public URL slug.
+Files and folders are the backbones of our Slug system. Names are used to link internally views, media and information to an unique URL Slug for public access.
+
+Each time you create a page file ending on `.html|.liquid` Slugtenberg will automatically attach any data or media file that share the same folder and/or name. This way, if you have `/src/slugs/index.liquid`, you can create an `index.json` or `index.yml` to handle data for that specific page inside.
+
+To handle global data that's available no every page file, you use `config[--dev]?.yml` files located on root folder or create a file on `/src/data/[put_a_name_here].csv` to access it from any page view.
 
 ## Available commands
 
-| Command | Usage |
-| ------- | ----- |
-| gulp server:start [--dev?] | |
-| gulp server:reload [--dev?] | |
-| gulp build [--dev?] | |
-| gulp watch [--dev?] | |
-| gulp views [--dev?] | |
-| gulp styles [--dev?] | |
-| gulp scripts [--dev?] | |
-| gulp media [--dev?] | |
+```
+gulp [command] [options]?
+
+Commands:
+ server:start
+ server:reload
+ build
+ watch
+ views
+ styles
+ scripts
+ media
+ 
+Options:
+ --dev
+```
