@@ -38,7 +38,10 @@ This instructions assume you have **Node** ([steps](https://nodejs.org/es/downlo
  ```
  gulp server:start --dev
  ```
-7. Browser will popup with your site running on `http://localhost:3000`
+7. Browser will popup with your site running on
+ ```
+ http://localhost:3000
+ ```
 8. Enjoy ( ͡ᵔ ͜ʖ ͡ᵔ )
 
 ## Folder Structure Basis
