@@ -45,10 +45,10 @@ This instructions assume you have **Node** ([steps](https://nodejs.org/es/downlo
 Start a new file in the desired folder and Just Start Coding™️.
 
 ```
-/src/data/
+/src/data
  ↳ CSV files will be used as input data for your pages. YML files are used as configuration.
 
-/src/layouts/
+/src/layouts
  ↳ HTML/Liquid files will be used as layouts other pages or to print out CSV files.
  
 /src/includes
