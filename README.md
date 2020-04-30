@@ -1,61 +1,95 @@
 # Slugtenberg
-The fastest and simplest way to build static websites with basic automation and compilers.
+The fastest and simplest way to build static websites in minutes with basic automation and compilers included.
 
 ## Why Slugtenberg?
-Start building pages instantly with [liquidjs](https://github.com/harttle/liquidjs) for templating, [SASS](https://github.com/topics/sass) for empowered styling, and [Babel](https://github.com/babel/babel) for last-gen Javascripting.
+Slugtenberg was designed to help you build *clean and scalable* websites from scratch in the least time possible. Saving you time by not configuring servers, databases and infinite library packages but keeping the benefits of using dynamic data and logic on static pages.
 
-## What's included?
-* **Zero-configuration required**. [Just start coding]().
-* Maintain your content [using files and folders as data]().
-* Use *for* and *if* to [code your pages dynamically]() based on input data.
-* Include *layouts* and *includes* to [build your pages in reusable small pieces](). 
-* Use spreadsheets as database by [automatically make pages using a CSV file]().
-* [Live preview your site locally]() and watch for file changes.
+Said that, Slugtenberg template system trust on HTML semantics empowered with a handlebar `{}` language to inject variables, conditionals and iterations from Markdown, JSON, YML, CSV and other files.
+
+## What it can do?
+* **Zero-configuration required**. Just Start Coding™️.
+* Maintain your content using files and folders as data.
+* Use *conditionals* and *iterations* to create your pages dynamically based on input data.
+* Include *layouts* and *partials* to build your pages in reusable small pieces. 
+* Use spreadsheets as database by automatically make pages using a CSV file.
+* Live preview your site locally and watch for file changes.
 
 ## Getting started
+This instructions assume you have **Node** ([steps](https://nodejs.org/es/download/)) and **Gulp** ([steps](https://gulpjs.com/docs/en/getting-started/quick-start/)) installed and updated on your machine.
 
+1. Open your favorite Terminal (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
+2. Clone or download this repository
+ ```
+ clone https://github.com/pabliqe/slugtenberg.git ./slugtenberg
+ ```
+3. Enter project folder using
+ ```
+ cd slugtenberg
+ ```
+4. Install required packages
+ ```
+ npm install -D
+ ```
+5. Build demo project using
+ ```
+ gulp build --dev
+ ```
+6. Start the local server
+ ```
+ gulp server:start --dev
+ ```
+7. Browser will popup with your site running on `http://localhost:3000`
+8. Enjoy ( ͡ᵔ ͜ʖ ͡ᵔ )
 
-## Folder startucture basics
-
-Forget about server configuration, prebuilders, minificators and databases.
-
-Slug Files and Folders as Site Pages
+## Folder Structure Basis
+Start a new file in the desired folder and Just Start Coding™️.
 
 ```
+/src/data/
+ ↳ CSV files will be used as input data for your pages. YML files are used as configuration.
+
+/src/layouts/
+ ↳ HTML/Liquid files will be used as layouts other pages or to print out CSV files.
+ 
+/src/includes
+ ↳ HTML/Liquid files to be included on your pages.
+ 
 /src/media
- ↳ Image, icon, video and sound files will be compiled to the Asset folder.
+ ↳ Images, icons, videos and sounds will be copied to the Asset folder.
  
 /src/scripts
- ↳ Files will be parsed as Javascript (ECMA6) minized and compiled to an Asset.
- 
-/src/styles
- ↳ Files will be parsed as SASS/SCSS, minized and compiled to an Asset.
+ ↳ Javascript files will be parsed as ECMA6, minized and compiled to an unified Asset file.
  
 /src/slugs
- ↳ Files and folders will be compile Slug names into HTML files to be accesed via URL.
+ ↳ Files and folders will be compile into the Slug system: HTML/Liquid compiles to HTML files; JSON, YML, Markdown and media files are attached as data.
+ 
+/src/styles
+ ↳ CSS files will be parsed as SASS/SCSS, minized and compiled to an unified Asset file.
 ```
 
 ## Database-Free
 
-Slug Files and Folders as Data Input
+Files and folders are the backbones of our Slug system. Names are used to link internally views, media and information to an unique URL Slug for public access.
 
+Each time you create a page file ending on `.html|.liquid` Slugtenberg will automatically attach any data or media file that share the same folder and/or name. This way, if you have `/src/slugs/index.liquid`, you can create an `index.json` or `index.yml` to handle data for that specific page inside.
 
-## Using Data on your Pages
+To handle global data that's available no every page file, you use `config[--dev]?.yml` files located on root folder or create a file on `/src/data/[put_a_name_here].csv` to access it from any page view.
 
-
-## Templating with Page Partials
+## Available commands
 
 ```
-/src/layouts
- ↳ Files used as layouts to be used on your page files or to print out a CSV file.
+gulp [command] [options]?
+
+Commands:
+ server:start
+ server:reload
+ build
+ watch
+ views
+ styles
+ scripts
+ media
  
-/src/includes
- ↳ Files to be include on your page files.
-```
-
-## Building Pages From a Csv File
-
-```
-/src/data
- ↳ Files will be parsed as CSV and used as input data for your pages.
+Options:
+ --dev
 ```
