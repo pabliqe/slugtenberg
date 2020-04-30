@@ -73,7 +73,7 @@ Files and folders are the backbones of our Slug system. Names are used to link i
 
 Each time you create a page file ending on `.html|.liquid` Slugtenberg will automatically attach any data or media file that share the same folder and/or name. This way, if you have `/src/slugs/index.liquid`, you can create an `index.json` or `index.yml` to handle data for that specific page inside.
 
-To handle global data that's available no every page file, you use `config[--dev]?.yml` files located on root folder or create a file on `/src/data/[put_a_name_here].csv` to access it from any page view.
+To handle global data that's available no every page file, add your data at `/config[--dev]?.yml`  or put a CSV file on `/src/data/` to access it from any page view.
 
 ## Available commands
 
