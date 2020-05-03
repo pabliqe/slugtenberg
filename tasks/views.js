@@ -24,27 +24,23 @@ const md = require('markdown-it')({
 const yaml = require('yaml')
 
 /* Customs */
-const config = require('./config.js')
-
-const LOADED_DATA = {}
+const config = require('../lib/config.js')
 const ENGINE_OPTS = {
 	engine: {
-		cache: false,
-		root: [
-			'src/layouts',
-			'src/includes'
-		],
-		strictFilters: true,
-		//strictVariables: true,
-		extname: config.typeTemplate
+		cache: config.viewCache,
+		root: config.viewRoots,
+		strictFilters: config.strictFilters,
+		strictVariables: config.strictVariables,
+		extname: String(config.typeTemplate).split('|')[0]
 	},
 	filters: {
 
 		/* Slug */
 		slugLink: (a) => config.baseUrl + '/' + a,
-		assetLink: (a) => config.assetUrl + '/' + a,
+		assetLink: (a) => config.cdnUrl + '/static/' + a,
 		makeSlug: (a) => makeSlug(a),
 		unmakeSlug: (a) => unmakeSlug(a),
+		safeSlug: (a) => safeSlug(a),
 
 		/* Counters */
 		max: (a,b) => (a > b) ? b : a,
@@ -55,9 +51,14 @@ const ENGINE_OPTS = {
 		randomFirst: (a) => a[Math.floor(Math.random(a.length))],
 		whereNot: (a,b,c) => a.filter((v,i) => !(b in v) || (c && v[b] !== c)),
 		whereLess: (a,b,c) => a.filter((v,i) => (b in v) && v[b] <= c),
-		whereGreater: (a,b,c) => a.filter((v,i) => (b in v) && v[b] >= c)
+		whereGreater: (a,b,c) => a.filter((v,i) => (b in v) && v[b] >= c),
+
+		/* Others */
+		or: (a, b, c) => a ? a : (b ? b : (c ? c : ''))
 	}
 }
+
+var LOADED_DATA = {}
 
 /* ——————————————————— HELPERS —————————————————————— */
 
@@ -95,16 +96,16 @@ function shuffleArray(array) {
 	return array
 }
 
-function getFileExt(file) {
-	return path.extname(file).replace(/^\./, '')
+function getFileExt(filepath) {
+	return path.extname(filepath).replace(/^\./, '')
 }
 
-function getFileName(file, includeExt) {
-	return !includeExt ? path.basename(file).replace(/\.(\w+)$/, '') : path.basename(file);
+function getFileName(filepath, ext) {
+	return !ext ? path.basename(filepath).replace(/\.(\w+)$/, '') : path.basename(filepath);
 }
 
-function getParentName(file) {
-	return path.dirname(file).replace(/^([\w\-_\/]*)\//, '')
+function getParentName(filepath) {
+	return path.dirname(filepath).replace(/^[\w\-_\/]*\//, '')
 }
 
 /* ——————————————————— SLUG FUNCTIONS —————————————————————— */
@@ -113,6 +114,7 @@ function makeSlug(str) {
 	if(!str) return ''
 
 	return str
+		.toLowerCase()
 		.trim()
 		.replace(/_/g, '--')
 		.replace(/ /g, '_')
@@ -125,16 +127,32 @@ function unmakeSlug(str) {
 	return str
 		.replace(/_/g, ' ')
 		.replace(/--/g, '_')
+		.replace(/(^\w|\s\w)/g, function(char) {
+			return char.toUpperCase();
+		});
+}
+
+function safeSlug(str) {
+	if(!str) return ''
+
+	let s = makeSlug(getFileName(str))
+
+	// try with parent folder name
+	if(s == 'index') s = makeSlug(getParentName(str))
+	
+	// is at home
+	if(s == 'slugs') s = 'index'
+
+	return s
 }
 
 function extendSlug(input) {
 	let output = {}
 
 	switch(typeof input) {
-		case 'object':
+		case 'object': // Parse object for slug
 			output = input
 
-			// Parse object for slug
 			walkObj(output,
 				
 				// Condition: match key slug
@@ -151,18 +169,14 @@ function extendSlug(input) {
 
 			break
 		
-		case 'string':
-			let s = getFileName(input)
-			if(s == 'index') s = getParentName(input)
-			if(s == 'slugs') s = 'index'
-
-			// Parse filepath
+		case 'string': // Using direct slug
+			input = safeSlug(input);
 			output = extend({
-				media: parseSlugFiles(s, 'media'),
-				content: parseSlugFiles(s, 'content')
-			}, parseSlugFiles(s, 'data'))
+				media: parseSlugFiles(input, 'media'),
+				content: parseSlugFiles(input, 'content')
+			}, parseSlugFiles(input, 'data'))
 
-			log('Extending «' + s + '» slug', output)
+			log('Extending «' + input + '» slug', output)
 
 			break
 	}
@@ -269,11 +283,11 @@ function loadDataSheet(file) {
 			src('src/layouts/' + fileOptions.use_layout + '+(' + config.typeTemplate + ')')
 				.pipe(rename((f) => log('▶︎▶︎▶︎ Building view@data: ' + fileOptions.name + '/' + v.slug)))
 				.pipe(data((f) => {
-					return {
-						current: extendSlug(v),
+					return extend({
+						current: v,
 						config: config,
 						data: LOADED_DATA
-					}
+					}, extendSlug(v))
 				}))
 				.pipe(liquid(ENGINE_OPTS))
 				.pipe(rename(v.slug + '.html'))
@@ -297,11 +311,11 @@ module.exports = () => {
 		])
 		.pipe(rename((f) => log('▶︎▶︎▶︎ Building view: ' + f.dirname + '/' + f.basename)))
 		.pipe(data((f) => {
-			return {
-				current: extendSlug(f.path),
+			return extend({
+				current: safeSlug(f.path),
 				config: config,
 				data: LOADED_DATA
-			}
+			}, extendSlug(f.path))
 		}))
 		.pipe(liquid(ENGINE_OPTS))
 		.pipe(rename((f) => {

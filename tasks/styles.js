@@ -9,7 +9,7 @@ const chmod = require('gulp-chmod')
 const sass = require('gulp-sass')
 
 /* Customs */
-const config = require('./config.js')
+const config = require('../lib/config.js')
 
 module.exports = () => {
 	return src([

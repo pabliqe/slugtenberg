@@ -1,5 +1,7 @@
 const bs = require('browser-sync').create()
-const config = require('./config.js')
+
+/* Customs */
+const config = require('../lib/config.js')
 
 module.exports.start = (done) => {
 	bs.init({

@@ -1,5 +1,6 @@
 const {task,watch,series} = require('gulp')
-const tasks = require('require-dir')('./gulp-tasks')
+const tasks = require('require-dir')('./tasks')
+const config = require('./lib/config');
 
 /* —————————————— MODULAR TASK INCLUDER —————————————— */
 
@@ -33,6 +34,8 @@ task('build', series(
 ))
 
 task('watch', () => {
+
+	// Watch for any file used in views
 	watch([
 		'src/data/**/*+(' + config.typeData + ')',
 		'src/includes/**/*+(' + config.typeTemplate + ')',
@@ -40,12 +43,15 @@ task('watch', () => {
 		'src/slugs/**/*+(' + config.typeTemplate + '|' + config.typeData + ')'],
 		series('views', 'server:reload'))
 	
+	// Watch for styles
 	watch('src/styles/**/*+(' + config.typeStyle + ')',
 		series('styles', 'server:reload'))
 	
+	// Watch for scripts
 	watch('src/scripts/**/*+(' + config.typeScript + ')',
 		series('scripts', 'server:reload'))
 	
+	// Watch for media files in any location
 	watch([
 		'src/slugs/**/*+(' + config.typeMedia + ')',
 		'src/media/**/*+(' + config.typeMedia + ')'],
