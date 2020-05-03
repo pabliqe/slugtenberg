@@ -72,6 +72,61 @@ function walkObj(obj, condition, action) {
 	})
 }
 
+// http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+function shuffleArray(array) {
+	var currentIndex = array.length,
+		temporaryValue,
+		randomIndex
+	
+  
+	// While there remain elements to shuffle...
+	while (0 !== currentIndex) {
+  
+	  // Pick a remaining element...
+	  randomIndex = Math.floor(Math.random() * currentIndex)
+	  currentIndex -= 1
+  
+	  // And swap it with the current element.
+	  temporaryValue = array[currentIndex]
+	  array[currentIndex] = array[randomIndex]
+	  array[randomIndex] = temporaryValue
+	}
+  
+	return array
+}
+
+function getFileExt(file) {
+	return path.extname(file).replace(/^\./, '')
+}
+
+function getFileName(file, includeExt) {
+	return !includeExt ? path.basename(file).replace(/\.(\w+)$/, '') : path.basename(file);
+}
+
+function getParentName(file) {
+	return path.dirname(file).replace(/^([\w\-_\/]*)\//, '')
+}
+
+/* ——————————————————— SLUG FUNCTIONS —————————————————————— */
+
+function makeSlug(str) {
+	if(!str) return ''
+
+	return str
+		.trim()
+		.replace(/_/g, '--')
+		.replace(/ /g, '_')
+		.replace(/[^A-Za-z0-9\-\_\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff]/g, '')
+}
+
+function unmakeSlug(str) {
+	if(!str) return ''
+
+	return str
+		.replace(/_/g, ' ')
+		.replace(/--/g, '_')
+}
+
 function extendSlug(input) {
 	let output = {}
 
@@ -148,59 +203,7 @@ function parseSlugFiles(slug, type) {
 	return output
 }
 
-function makeSlug(str) {
-	if(!str) return ''
-
-	return str
-		.trim()
-		.replace(/_/g, '--')
-		.replace(/ /g, '_')
-		.replace(/[^A-Za-z0-9\-\_\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff]/g, '')
-}
-
-function unmakeSlug(str) {
-	if(!str) return ''
-
-	return str
-		.replace(/_/g, ' ')
-		.replace(/--/g, '_')
-		.replace(/^\w/, (c) => c.toUpperCase())
-}
-
-function getFileExt(file) {
-	return path.extname(file).replace(/^\./, '')
-}
-
-function getFileName(file, includeExt) {
-	return !includeExt ? path.basename(file).replace(/\.(\w+)$/, '') : path.basename(file);
-}
-
-function getParentName(file) {
-	return path.dirname(file).replace(/^([\w\-_\/]*)\//, '')
-}
-
-// http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-function shuffleArray(array) {
-	var currentIndex = array.length,
-		temporaryValue,
-		randomIndex
-	
-  
-	// While there remain elements to shuffle...
-	while (0 !== currentIndex) {
-  
-	  // Pick a remaining element...
-	  randomIndex = Math.floor(Math.random() * currentIndex)
-	  currentIndex -= 1
-  
-	  // And swap it with the current element.
-	  temporaryValue = array[currentIndex]
-	  array[currentIndex] = array[randomIndex]
-	  array[randomIndex] = temporaryValue
-	}
-  
-	return array
-  }
+/* ——————————————————— PARSERS —————————————————————— */
 
 function parseMarkdown(content) {
   return md.render(content)
@@ -226,7 +229,7 @@ function parseDataFile(file, options) {
 	}
 }
 
-function loadCsvFile(file) {
+function loadDataSheet(file) {
 	log('▶︎▶︎▶︎ Loading data from «' + file + '»')
 
 	let fileOptions = {
@@ -285,7 +288,7 @@ module.exports = () => {
 	
 	// Append global data files
 	glob.sync('src/data/**/*' + config.typeDataSheet)
-		.forEach((v,i,a) => loadCsvFile(v))
+		.forEach((v,i,a) => loadDataSheet(v))
 	
 	return src([
 			'src/slugs/**/*+(' + config.typeTemplate + ')',  // Ext force to read files only
