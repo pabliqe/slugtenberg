@@ -18,5 +18,5 @@ module.exports = extend({
 	typeDataSheet: '.csv',
 	typeStyle: '.scss|.sass',
 	typeScript: '.js',
-	typeMedia: '.jpg|.jpeg|.png|.mp4|.gif',
+	typeMedia: '.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm'
 }, config)
