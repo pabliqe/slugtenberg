@@ -44,11 +44,16 @@ task('watch', () => {
 		series('views', 'server:reload'))
 	
 	// Watch for styles
-	watch('src/styles/**/*+(' + config.typeStyle + ')',
+	watch(
+		[
+		'src/slugs/**/*+(' + config.typeStyle + ')',
+		'src/styles/**/*+(' + config.typeStyle + ')'],
 		series('styles', 'server:reload'))
 	
 	// Watch for scripts
-	watch('src/scripts/**/*+(' + config.typeScript + ')',
+	watch([
+		'src/slugs/**/*+(' + config.typeScripts + ')',
+		'src/scripts/**/*+(' + config.typeScripts + ')'],
 		series('scripts', 'server:reload'))
 	
 	// Watch for media files in any location
