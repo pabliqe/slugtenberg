@@ -1,35 +1,21 @@
 const {task,watch,series} = require('gulp')
-const tasks = require('require-dir')('./tasks')
-const config = require('./lib/config');
-
-/* —————————————— MODULAR TASK INCLUDER —————————————— */
-
-
-function init(obj, parent) {
-
-	Object.entries(obj).forEach((v,i,a) => {
-		let k = v[0]
-		let f = v[1]
-
-		if(typeof f == 'function') {
-			let n = parent ? parent + ':' + k : k;
-			task(n, obj[k])
-
-		} else if(typeof f == 'object') {
-			init(f, k)
-		}
-	})
-}
-
-init(tasks);
+const lib = require('require-dir')('./lib')
 
 /* ————————————————— INTIIALIZERS —————————————————— */
 
-task('build', series(
-	'views',
-	'styles',
-	'scripts',
-	'media',
+task('server:start', lib.server.start);
+task('server:reload', lib.server.reload);
+
+task('build:views', lib.views);
+task('build:styles', lib.styles);
+task('build:scripts', lib.scripts);
+task('build:media', lib.media);
+
+task('build:all', series(
+	'build:views',
+	'build:styles',
+	'build:scripts',
+	'build:media',
 	'server:reload'
 ))
 
@@ -37,28 +23,26 @@ task('watch', () => {
 
 	// Watch for any file used in views
 	watch([
-		'src/data/**/*+(' + config.typeData + ')',
-		'src/includes/**/*+(' + config.typeTemplate + ')',
-		'src/layouts/**/*+(' + config.typeTemplate + ')',
-		'src/slugs/**/*+(' + config.typeTemplate + '|' + config.typeData + ')'],
+		'src/data/**/*+(' + lib.config.typeData + ')',
+		'src/includes/**/*+(' + lib.config.typeTemplate + ')',
+		'src/layouts/**/*+(' + lib.config.typeTemplate + ')',
+		'src/slugs/**/*+(' + lib.config.typeTemplate + '|' + lib.config.typeData + ')'],
 		series('views', 'server:reload'))
 	
 	// Watch for styles
 	watch(
 		[
-		'src/slugs/**/*+(' + config.typeStyle + ')',
-		'src/styles/**/*+(' + config.typeStyle + ')'],
+			'src/styles/**/*+(' + lib.config.typeStyle + ')',
+			'src/styles/**/*+(' + lib.config.typeStyle + ')'],
 		series('styles', 'server:reload'))
 	
 	// Watch for scripts
-	watch([
-		'src/slugs/**/*+(' + config.typeScripts + ')',
-		'src/scripts/**/*+(' + config.typeScripts + ')'],
+	watch('src/scripts/**/*+(' + lib.config.typeScript + ')',
 		series('scripts', 'server:reload'))
 	
 	// Watch for media files in any location
 	watch([
-		'src/slugs/**/*+(' + config.typeMedia + ')',
-		'src/media/**/*+(' + config.typeMedia + ')'],
+		'src/slugs/**/*+(' + lib.config.typeMedia + ')',
+		'src/media/**/*+(' + lib.config.typeMedia + ')'],
 		series('media', 'server:reload'))
 })
