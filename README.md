@@ -88,12 +88,12 @@ gulp [command] [options]?
 Commands:
  server:start
  server:reload
- build
+ build:all
+ build:views
+ build:styles
+ build:scripts
+ build:media
  watch
- views
- styles
- scripts
- media
  
 Options:
  --dev
