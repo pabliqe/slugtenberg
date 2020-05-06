@@ -2,9 +2,11 @@
 The fastest and simplest way to build static websites in minutes with basic automation and compilers included.
 
 ## Why Slugtenberg?
-Slugtenberg was designed to help you build *clean and scalable* websites from scratch in the least time possible. Saving you time by not configuring servers, databases and infinite library packages but keeping the benefits of using dynamic data and logic on static pages.
+Slugtenberg was designed to build *clean and scalable* websites from scratch in the least possible time.
 
-Said that, Slugtenberg template system trust on HTML semantics powered with a handlebar language `{}` to inject variables, conditionals and iterations from Markdown, JSON, YML, CSV and media files.
+Saves time by not configuring servers, databases and infinite library packages; while keeping the benefits of using dynamic data and logic on static pages.
+
+The template system is based on HTML semnatics powered by a handlebar `{}` language (called LiquisJS) to inject variables, conditionals and iterations from Markdown, JSON, YML, CSV and media files.
 
 ## What it can do?
 * **Zero-configuration required**. Just Start Coding™️.
@@ -51,30 +53,37 @@ Start a new file in the desired folder and Just Start Coding™️.
 
 ```
 /src/data
- ↳ CSV files will be used as input data for your pages. YML files are used as configuration.
+ ↳ CSV files will be used as input data for site slugs,
+   YML files are used as configuration.
 
 /src/layouts
- ↳ HTML/Liquid files will be used as layouts other pages or to print out CSV files.
+ ↳ HTML/Liquid files will be used as layouts for site slugs
+   or used to render CSV files.
  
 /src/includes
- ↳ Any kind of file to be included on your pages.
+ ↳ Any kind of file to be included on your slug views.
  
 /src/media
- ↳ Images, icons, videos and sounds will be copied to the public Assets folder.
+ ↳ Images, icons, videos and sounds will be copied
+   to the public Assets folder.
  
 /src/scripts
- ↳ Javascript files will be parsed as ECMA6, minized and compiled to an unified public Asset file.
+ ↳ Javascript files will be parsed as ECMA6, minized
+   and compiled to an unified public Asset file.
  
 /src/slugs
- ↳ Files and folders will be compile into the Slug system: HTML/Liquid compiles to HTML files; JSON, YML, Markdown and media files are attached as data.
+ ↳ Files and folders will be compiled in site URLs.
+   HTML/Liquid compiles to HTML files;
+   JSON, YML, Markdown and media files are used as data.
  
 /src/styles
- ↳ CSS files will be parsed as SASS/SCSS, minized and compiled to an unified public Asset file.
+ ↳ CSS files will be parsed as SASS/SCSS, minized
+   and compiled to an unified public Asset file.
 ```
 
 ## Database-Free
 
-Files and folders are the backbones of our Slug system. Filenames are used to internally link views, media and information to an unique URL Slug for public access.
+Files and folders are the backbones of our slug system. Filenames are used to internally link views, media and information to an unique URL Slug for public access.
 
 Each time you create a page file ending on `.html|.liquid` Slugtenberg will automatically attach any data or media file that share the same folder and/or name. This way, if you have `/src/slugs/index.liquid`, you can create an `index.json` or `index.yml` to handle data for that specific page inside.
 
