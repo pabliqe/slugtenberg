@@ -118,7 +118,7 @@ gulp [command] [options]?
 Commands:
  server:start
  server:reload
- build:all
+ build
  build:views
  build:styles
  build:scripts
