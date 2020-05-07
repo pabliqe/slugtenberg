@@ -52,53 +52,53 @@ This instructions assume you have **Node** ([steps](https://nodejs.org/es/downlo
 Start a new file in the desired folder and Just Start Coding™️.
 
 ```
-├─ /data
-│  ├─ .csv
+├─ data/
+│  ├─ *.csv
 │  │  └─ Datasheets will be parsed and iterables as {{ data.filename }}
 │  │
-│  └─ .yml
+│  └─ *.yml
 │     ├─ Datasheet's configuration files are used to setup 
 │     └─ parser options and matched by filename.
 │
-├─ /layouts
-│  └─ .html/.liquid
+├─ layouts/
+│  └─ *(.html|.liquid)
 │     ├─ Used as layouts on slug views when calling {% layout 'filename' %}
 │     └─ Also can be used to render CSV Datasheets by setting 'use_layout:filename'
 │
-├─ /includes
-│  ├─ .html|.liquid
+├─ includes/
+│  ├─ *(.html|.liquid)
 │  │  └─ Template files can be invoked as {% include 'filename' %}.
 │  │
 │  └─ *[^.html|.liquid]
 │     └─ Any other file can be invoked as {% include 'filename.svg' %}.
 │
-├─ /media
-│  └─ .jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm
+├─ media/
+│  └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
 │     ├─ Will be copied to the public to the Assets folder.
 │     └─ Assets can be accesed on {{ 'filename.png' | assetLink }}
 │
-├─ /scripts
-│  └─ .js
+├─ scripts/
+│  └─ *.js
 │     └─ Parsed as ECMA6, minized and compiled into {{ config.scriptsLink }}
 │   
 ├─ /slugs
 |  ├─ Files and folders will be used as site URL hierarchy. 
 │  |  
-│  ├─ .html|.liquid
+│  ├─ *(.html|.liquid)
 │  |  ├─ Compile to site view that can be accesed throw clean URL
 │  |  └─ Current URL slug always available at {{ current }}
 │  |
-│  ├─ .json|.yml
+│  ├─ *(.json|.yml)
 │  |  └─ Attached to slug view as {{ variable }}.
 │  |
-│  ├─ .md|.markdown
+│  ├─ *(.md|.markdown)
 │  |  └─ Attached to slug view as {{ contents.filename }}.
 │  |
-│  └─ .jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm
+│  └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
 │     └─ Attached to slug view as {{ media.filename }}.
 │
 └─ /styles
-   └─ .scss|.sass|.css
+   └─ *(.scss|.sass|.css)
       └─ Get paresed, minimized and compiled into {{ config.stylesLink }}
 ```
 
