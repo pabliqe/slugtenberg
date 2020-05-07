@@ -1,7 +1,7 @@
 # Slugtenberg
 The fastest and simplest way to build static websites in minutes with basic automation and compilers included.
 
-## Why Slugtenberg?
+## Why this?
 Slugtenberg was designed to build *clean and scalable* websites from scratch in the least possible time.
 
 Saves you time by not configuring servers, databases and infinite library packages; while keeping the benefits of using dynamic data and logic on static pages.
