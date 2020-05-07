@@ -48,12 +48,10 @@ This instructions assume you have **Node** ([steps](https://nodejs.org/es/downlo
 8. Enjoy
 ( ͡ᵔ ͜ʖ ͡ᵔ )
 
-## Folder Structure Basics
+## Folder Source Basics
 Start a new file in the desired folder and Just Start Coding™️.
 
 ```
-/src
-│  
 ├─ /data
 │  ↳ CSV files will be used as input data for site slugs,
 │    YML files are used as configuration.
