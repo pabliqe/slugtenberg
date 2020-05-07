@@ -52,33 +52,35 @@ This instructions assume you have **Node** ([steps](https://nodejs.org/es/downlo
 Start a new file in the desired folder and Just Start Coding™️.
 
 ```
-/src/data
- ↳ CSV files will be used as input data for site slugs,
-   YML files are used as configuration.
-
-/src/layouts
- ↳ HTML/Liquid files will be used as layouts for site slugs
-   or used to render CSV files.
- 
-/src/includes
- ↳ Any kind of file to be included on your slug views.
- 
-/src/media
- ↳ Images, icons, videos and sounds will be copied
-   to the public Assets folder.
- 
-/src/scripts
- ↳ Javascript files will be parsed as ECMA6, minized
-   and compiled to an unified public Asset file.
- 
-/src/slugs
- ↳ Files and folders will be compiled in site URLs.
-   HTML/Liquid compiles to HTML files;
-   JSON, YML, Markdown and media files are used as data.
- 
-/src/styles
- ↳ CSS files will be parsed as SASS/SCSS, minized
-   and compiled to an unified public Asset file.
+/src
+│  
+├─ /data
+│  ↳ CSV files will be used as input data for site slugs,
+│    YML files are used as configuration.
+│  
+├─ /layouts
+│   ↳ HTML/Liquid files will be used as layouts for site slugs
+│     or used to render CSV files.
+│   
+├─ /includes
+│   ↳ Any kind of file to be included on your slug views.
+│   
+├─ /media
+│   ↳ Images, icons, videos and sounds will be copied
+│     to the public Assets folder.
+│   
+├─ /scripts
+│   ↳ Javascript files will be parsed as ECMA6, minized
+│     and compiled to an unified public Asset file.
+│   
+├─ /slugs
+│   ↳ Files and folders will be compiled in site URLs.
+│     HTML/Liquid compiles to HTML files;
+│     JSON, YML, Markdown and media files are used as data.
+│   
+├─ /styles
+│   ↳ CSS files will be parsed as SASS/SCSS, minized
+│     and compiled to an unified public Asset file.
 ```
 
 ## Database-Free
