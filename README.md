@@ -54,16 +54,16 @@ Start a new file in the desired folder and Just Start Coding™️.
 ```
 ├─ data/
 │  ├─ *.csv
-│  │  └─ Datasheets will be parsed and iterables as {{ data.filename }}
+│  │  └─ Datasheets are parsed and loopable as {{ data.filename }}
 │  │
 │  └─ *.yml
-│     ├─ Datasheet's configuration files are used to setup 
-│     └─ parser options and matched by filename.
+│     ├─ Datasheet's configuration files are used to
+│     └─ setup parser options and matched by filename.
 │
 ├─ layouts/
 │  └─ *(.html|.liquid)
-│     ├─ Used as layouts on slug views when calling {% layout 'filename' %}
-│     └─ Also can be used to render CSV Datasheets by setting 'use_layout:filename'
+│     ├─ Template files here can be invoked as layouts using {% layout 'filename' %}
+│     └─ Also used to render CSV Datasheets by setting 'use_layout:filename'
 │
 ├─ includes/
 │  ├─ *(.html|.liquid)
@@ -74,32 +74,32 @@ Start a new file in the desired folder and Just Start Coding™️.
 │
 ├─ media/
 │  └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
-│     ├─ Will be copied to the public to the Assets folder.
+│     ├─ Media files are optimized and copied to the Assets folder.
 │     └─ Assets can be accesed on {{ 'filename.png' | assetLink }}
 │
 ├─ scripts/
 │  └─ *.js
-│     └─ Parsed as ECMA6, minized and compiled into {{ config.scriptsLink }}
+│     └─ Scripts are parsed as ECMA6, minized and compiled into {{ config.scriptsLink }}
 │   
 ├─ slugs/
-│  ├─ Files and folders will be used as site URL hierarchy. 
+│  ├─ Files and folders here will make site URLs hierarchy. 
 │  │  
 │  ├─ *(.html|.liquid)
-│  │  ├─ Compile to site view that can be accesed throw clean URL
+│  │  ├─ Template files compile into a site view using filename as URL slug
 │  │  └─ Current URL slug always available at {{ current }}
 │  │
 │  ├─ *(.json|.yml)
-│  │  └─ Attached to slug view as {{ variable }}.
+│  │  └─ Data files are linked to current view at {{ variable }}.
 │  │
 │  ├─ *(.md|.markdown)
-│  │  └─ Attached to slug view as {{ contents.filename }}.
+│  │  └─ Content files are linked to current view at {{ contents.filename }}.
 │  │
 │  └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
-│     └─ Attached to slug view as {{ media.filename }}.
+│     └─ Asset files are linked to current view at {{ media.filename }}.
 │
 └─ styles/
    └─ *(.scss|.sass|.css)
-      └─ Get paresed, minimized and compiled into {{ config.stylesLink }}
+      └─ Styles parsed as CSS, minimized and compiled into {{ config.stylesLink }}
 ```
 
 ## Database-Free
