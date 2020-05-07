@@ -31,7 +31,7 @@ Start a new file in the desired folder and Just Start Coding™️.
 ├─ layouts/
 │  └─ *(.html|.liquid)
 │     ├─ Template files here can be invoked as layouts using {% layout 'filename' %}
-│     └─ Also used to render CSV Datasheets by setting 'use_layout:filename'
+│     └─ Also used to render CSV Datasheets by setting 'use_layout' as parser options
 │
 ├─ includes/
 │  ├─ *(.html|.liquid)
