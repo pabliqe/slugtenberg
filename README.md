@@ -52,9 +52,9 @@ This instructions assume you have **Node** ([steps](https://nodejs.org/es/downlo
 Start a new file in the desired folder and Just Start Coding™️.
 
 ```
-├─ /data
-│  ↳ CSV files will be used as input data for site slugs,
-│    YML files are used as configuration.
+├─ /data 
+│   ↳ CSV files will be used as input data for site slugs,
+│     YML files are used as configuration.
 │  
 ├─ /layouts
 │   ↳ HTML/Liquid files will be used as layouts for site slugs
