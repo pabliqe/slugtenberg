@@ -82,18 +82,18 @@ Start a new file in the desired folder and Just Start Coding™️.
 │     └─ Parsed as ECMA6, minized and compiled into {{ config.scriptsLink }}
 │   
 ├─ slugs/
-|  ├─ Files and folders will be used as site URL hierarchy. 
-│  |  
+│  ├─ Files and folders will be used as site URL hierarchy. 
+│  │  
 │  ├─ *(.html|.liquid)
-│  |  ├─ Compile to site view that can be accesed throw clean URL
-│  |  └─ Current URL slug always available at {{ current }}
-│  |
+│  │  ├─ Compile to site view that can be accesed throw clean URL
+│  │  └─ Current URL slug always available at {{ current }}
+│  │
 │  ├─ *(.json|.yml)
-│  |  └─ Attached to slug view as {{ variable }}.
-│  |
+│  │  └─ Attached to slug view as {{ variable }}.
+│  │
 │  ├─ *(.md|.markdown)
-│  |  └─ Attached to slug view as {{ contents.filename }}.
-│  |
+│  │  └─ Attached to slug view as {{ contents.filename }}.
+│  │
 │  └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
 │     └─ Attached to slug view as {{ media.filename }}.
 │
