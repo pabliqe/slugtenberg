@@ -48,7 +48,7 @@ This instructions assume you have **Node** ([steps](https://nodejs.org/es/downlo
 8. Enjoy
 ( ͡ᵔ ͜ʖ ͡ᵔ )
 
-## Folder Source Basics
+## File & Folder Basics
 Start a new file in the desired folder and Just Start Coding™️.
 
 ```
