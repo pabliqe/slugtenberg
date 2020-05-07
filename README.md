@@ -52,33 +52,54 @@ This instructions assume you have **Node** ([steps](https://nodejs.org/es/downlo
 Start a new file in the desired folder and Just Start Coding™️.
 
 ```
-├─ /data 
-│   ↳ CSV files will be used as input data for site slugs,
-│     YML files are used as configuration.
-│  
+├─ /data
+│  ├─ .csv
+│  │  └─ Datasheets will be parsed and iterables as {{ data.filename }}
+│  │
+│  └─ .yml
+│     ├─ Datasheet's configuration files are used to setup 
+│     └─ parser options and matched by filename.
+│
 ├─ /layouts
-│   ↳ HTML/Liquid files will be used as layouts for site slugs
-│     or used to render CSV files.
-│   
+│  └─ .html/.liquid
+│     ├─ Used as layouts on slug views when calling {% layout 'filename' %}
+│     └─ Also can be used to render CSV Datasheets by setting 'use_layout:filename'
+│
 ├─ /includes
-│   ↳ Any kind of file to be included on your slug views.
-│   
+│  ├─ .html|.liquid
+│  │  └─ Template files can be invoked as {% include 'filename' %}.
+│  │
+│  └─ *[^.html|.liquid]
+│     └─ Any other file can be invoked as {% include 'filename.svg' %}.
+│
 ├─ /media
-│   ↳ Images, icons, videos and sounds will be copied
-│     to the public Assets folder.
-│   
+│  └─ .jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm
+│     ├─ Will be copied to the public to the Assets folder.
+│     └─ Assets can be accesed on {{ 'filename.png' | assetLink }}
+│
 ├─ /scripts
-│   ↳ Javascript files will be parsed as ECMA6, minized
-│     and compiled to an unified public Asset file.
+│  └─ .js
+│     └─ Parsed as ECMA6, minized and compiled into {{ config.scriptsLink }}
 │   
 ├─ /slugs
-│   ↳ Files and folders will be compiled in site URLs.
-│     HTML/Liquid compiles to HTML files;
-│     JSON, YML, Markdown and media files are used as data.
-│   
-├─ /styles
-│   ↳ CSS files will be parsed as SASS/SCSS, minized
-│     and compiled to an unified public Asset file.
+|  ├─ Files and folders will be used as site URL hierarchy. 
+│  |  
+│  ├─ .html|.liquid
+│  |  ├─ Compile to site view that can be accesed throw clean URL
+│  |  └─ Current URL slug always available at {{ current }}
+│  |
+│  ├─ .json|.yml
+│  |  └─ Attached to slug view as {{ variable }}.
+│  |
+│  ├─ .md|.markdown
+│  |  └─ Attached to slug view as {{ contents.filename }}.
+│  |
+│  └─ .jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm
+│     └─ Attached to slug view as {{ media.filename }}.
+│
+└─ /styles
+   └─ .scss|.sass|.css
+      └─ Get paresed, minimized and compiled into {{ config.stylesLink }}
 ```
 
 ## Database-Free
