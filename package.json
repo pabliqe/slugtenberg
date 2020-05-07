@@ -31,9 +31,9 @@
 		"gulp-uglify": "^3.0.2",
 		"jshint": "^2.11.0",
 		"markdown-it": "^10.0.0",
-		"merge-stream": "^2.0.0",
 		"path": "^0.12.7",
 		"require-dir": "^1.2.0",
+		"through2": "^3.0.1",
 		"yaml": "^1.9.2",
 		"yargs": "^14.2.0"
 	},

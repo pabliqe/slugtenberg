@@ -41,9 +41,9 @@ Start a new file in the desired folder and Just Start Coding™️.
 │     └─ Any other file can be invoked as {% include 'filename.svg' %}.
 │
 ├─ media/
-│  └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
-│     ├─ Media files are optimized and copied to the Assets folder.
-│     └─ Assets can be accesed on {{ 'filename.png' | assetLink }}
+│  └─ *
+│     ├─ Media files are just copied to the Assets folder
+│     └─ and can be invoked on templates using {{ 'filename.mov' | assetLink }}
 │
 ├─ scripts/
 │  └─ *.js

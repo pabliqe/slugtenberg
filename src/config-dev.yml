@@ -1,3 +1,4 @@
 baseUrl: 'http://localhost:3000'
 cdnUrl: 'http://localhost:3000'
 siteTitle: 'Slutenberg Site'
+siteLanguage: 'en'
