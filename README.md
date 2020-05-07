@@ -81,7 +81,7 @@ Start a new file in the desired folder and Just Start Coding™️.
 │  └─ *.js
 │     └─ Parsed as ECMA6, minized and compiled into {{ config.scriptsLink }}
 │   
-├─ /slugs
+├─ slugs/
 |  ├─ Files and folders will be used as site URL hierarchy. 
 │  |  
 │  ├─ *(.html|.liquid)
@@ -97,7 +97,7 @@ Start a new file in the desired folder and Just Start Coding™️.
 │  └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
 │     └─ Attached to slug view as {{ media.filename }}.
 │
-└─ /styles
+└─ styles/
    └─ *(.scss|.sass|.css)
       └─ Get paresed, minimized and compiled into {{ config.stylesLink }}
 ```
