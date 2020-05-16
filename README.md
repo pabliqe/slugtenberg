@@ -79,13 +79,13 @@ Each time you create a page file ending on `.html|.liquid` Slugtenberg will auto
 To make global data be available on every page file, add your variables on `/config[-dev]?.yml` or put a CSV file in `/src/data/` to access it from any page view.
 
 ## Getting started
-This instructions assume you have **Node** ([steps](https://nodejs.org/es/download/)) and **Gulp** ([steps](https://gulpjs.com/docs/en/getting-started/quick-start/)) installed and updated on your machine.
+This instructions assume you have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Node](https://nodejs.org/es/download/), [Gulp](https://gulpjs.com/docs/en/getting-started/quick-start/) installed and updated on your machine.
 
 1. Open your favorite Terminal
 (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
 2. Clone or download this repository
  ```
- clone https://github.com/pabliqe/slugtenberg.git ./slugtenberg
+ git clone https://github.com/pabliqe/slugtenberg.git ./slugtenberg
  ```
 3. Enter project folder
  ```
