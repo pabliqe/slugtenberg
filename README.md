@@ -1,12 +1,12 @@
 # Slugtenberg
-The fastest and simplest way to build static websites in minutes with basic automation and compilers included.
+The fastest and simplest compiler to build static websites in minutes with basic automation and many parsers included.
 
 ## Why this?
 Slugtenberg was designed to build *clean and scalable* websites from scratch in the least possible time.
 
-Saves you time by not configuring servers, databases and infinite library packages; while keeping the benefits of using dynamic data and logic on static pages.
+Saves you time by not having to deal with servers, databases and infinite library packages; while keeping the benefits of using dynamic data and logic on static pages thanks to our [database-free slug system](#database-free).
 
-The template system is based on HTML semnatics powered by a handlebar `{}` language (called LiquisJS) to inject variables, conditionals and iterations from Markdown, JSON, YML, CSV and media files.
+The template rendering is built on basic HTML powered with LiquidJS (a handlebar `{}` language) to inject conditions and iterations using data from Markdown, JSON, YML, CSV and media files.
 
 ## What it can do?
 * **Zero-configuration required**. Just Start Coding™️.
@@ -15,6 +15,14 @@ The template system is based on HTML semnatics powered by a handlebar `{}` langu
 * Include *layouts* and *partials* to build your pages in reusable small pieces. 
 * Use spreadsheets as database by automatically make pages using a CSV file.
 * Live preview your site locally and watch for file changes.
+
+## Database-Free
+
+Files and folders are the backbones of our slug system. Filenames are used to internally link views, media and information to an unique URL Slug for public access.
+
+Each time you create a page file ending on `.html|.liquid` Slugtenberg will automatically attach any data or media file that share the same folder and/or name. This way, if you have `/src/slugs/index.liquid`, you can create an `index.json` or `index.yml` to handle data for that specific page inside.
+
+To make global data be available on every page file, add your variables on `/config[-dev]?.yml` or put a CSV file in `/src/data/` to access it from any page view.
 
 ## File & Folder Basics
 Start a new file in the desired folder and Just Start Coding™️.
@@ -69,14 +77,6 @@ Start a new file in the desired folder and Just Start Coding™️.
    └─ *(.scss|.sass|.css)
       └─ Styles parsed as CSS, minimized and compiled into {{ config.stylesLink }}
 ```
-
-## Database-Free
-
-Files and folders are the backbones of our slug system. Filenames are used to internally link views, media and information to an unique URL Slug for public access.
-
-Each time you create a page file ending on `.html|.liquid` Slugtenberg will automatically attach any data or media file that share the same folder and/or name. This way, if you have `/src/slugs/index.liquid`, you can create an `index.json` or `index.yml` to handle data for that specific page inside.
-
-To make global data be available on every page file, add your variables on `/config[-dev]?.yml` or put a CSV file in `/src/data/` to access it from any page view.
 
 ## Getting started
 This instructions assume you have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Node](https://nodejs.org/es/download/), [Gulp](https://gulpjs.com/docs/en/getting-started/quick-start/) installed and updated on your machine.
