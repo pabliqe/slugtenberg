@@ -33,49 +33,57 @@ src/
 │  │  └─ Datasheets are parsed and loopable as {{ data.filename }}
 │  │
 │  └─ *.yml
-│     ├─ Datasheet's configuration files are used to
-│     └─ setup parser options and matched by filename.
+│     ├─ Data files sharing the same slug will be used as Datasheet's configuration file.
+│     └─ This helps setup parser options such 'use_layout' or column types, among others.
 │
 ├─ layouts/
 │  └─ *(.html|.liquid)
-│     ├─ Template files here can be invoked as layouts using {% layout 'filename' %}
-│     └─ Also used to render CSV Datasheets by setting 'use_layout' as parser options
+│     ├─ Partial layouts can be invoked as {% layout 'filename' %}
+│     └─ also used to render out CSV Datasheets when 'use_layout' is present.
 │
 ├─ includes/
 │  ├─ *(.html|.liquid)
-│  │  └─ Template files can be invoked as {% include 'filename' %}.
+│  │  └─ Partial includes can be invoked as {% include 'filename' %}.
 │  │
 │  └─ *[^.html|.liquid]
-│     └─ Any other file can be invoked as {% include 'filename.svg' %}.
+│     └─ Any other file can be invoked adding the extension as {% include 'filename.svg' %}.
 │
 ├─ media/
 │  └─ *
 │     ├─ Media files are just copied to the Assets folder
-│     └─ and can be invoked on templates using {{ 'filename.mov' | assetLink }}
+│     └─ and can be invoked as {{ 'filename.mov' | assetLink }}.
 │
 ├─ scripts/
 │  └─ *.js
-│     └─ Scripts are parsed as ECMA6, minized and compiled into {{ config.scriptsLink }}
+│     └─ Scripts are parsed as ECMA6, minized and compiled into {{ config.scriptsLink }}.
 │   
 ├─ slugs/
-│  ├─ Files and folders here will make site URLs hierarchy. 
-│  │  
 │  ├─ *(.html|.liquid)
-│  │  ├─ Template files compile into a site view using filename as URL slug
-│  │  └─ Current URL slug always available at {{ current }}
+│  │  ├─ Templates compile into a site view using filename slug as URL.
+│  │  └─ Current slug are always available at {{ current }}.
 │  │
 │  ├─ *(.json|.yml)
-│  │  └─ Data files are linked to current view at {{ variable }}.
+│  │  └─ Data files that shares the same slug, will be available directly as {{ variables }}.
 │  │
-│  ├─ *(.md|.markdown)
-│  │  └─ Content files are linked to current view at {{ contents.filename }}.
-│  │
-│  └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
-│     └─ Asset files are linked to current view at {{ media.filename }}.
+│  └─ [slug]/
+│     ├─ Files inside slug matching folders will be linked to use as data.
+│     ├─ Index files inside this folder are used as main folder view.
+│     │
+│     ├─ *(.md|.markdown)
+│     │  ├─ Content files are parsed as Markdown
+│     │  └─ and available to be iterated using {{ contents.filename }}.
+│     │
+│     ├─ *(.webloc|.xml)
+│     │  ├─ Link files are parsed as Safari Webloc files
+│     │  └─ and available to be iterated using {{ links.filename }}.
+│     │
+│     └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
+│        ├─ Asset files are copied to Asset folder
+│        └─ and available as URL to be iterated using {{ media.filename }}.
 │
 └─ styles/
    └─ *(.scss|.sass|.css)
-      └─ Styles parsed as CSS, minimized and compiled into {{ config.stylesLink }}
+      └─ Styles are parsed as CSS, minimized and compiled into {{ config.stylesLink }}
 ```
 
 ## Getting started
