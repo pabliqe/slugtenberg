@@ -2,11 +2,9 @@
 The fastest and simplest compiler to build static websites in minutes with basic automation and many parsers included.
 
 ## Why this?
-Slugtenberg was designed to build *clean and scalable* websites from scratch in the least possible time.
+Slugtenberg was designed to build *clean and scalable* websites from scratch in the least possible time. Saves you time by not having to deal with servers, databases and infinite library packages; while keeping the benefits of using dynamic data and logic on static.
 
-Saves you time by not having to deal with servers, databases and infinite library packages; while keeping the benefits of using dynamic data and logic on static pages thanks to our [database-free slug system](#database-free).
-
-The template rendering is built on basic HTML powered with LiquidJS (a handlebar `{}` language) to inject conditions and iterations using data from Markdown, JSON, YML, CSV and media files.
+All of this thanks to the [database-free slug system](#database-free) based on [files and folders](##file--folder-basics) rendering system that use HTML semantics powered with LiquidJS (a handlebar `{}` language) to inject data from Markdown, JSON, YML, CSV and media files.
 
 ## What it can do?
 * **Zero-configuration required**. Just Start Coding™️.
