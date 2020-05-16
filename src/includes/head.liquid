@@ -1,7 +1,5 @@
-{%- assign currentTitle = current | unmakeSlug -%}
-
-<title>{{ pageTitle | or: currentTitle }} - {{ config.siteTitle }}</title>
-<meta name="description" content="{{ pageDescription | or: config.siteDescription }}">
+<title>{{ config.siteTitle }} &bull; {{ current | unmakeSlug }}</title>
+<meta name="description" content="{{ config.siteDescription }}">
 
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">

@@ -28,26 +28,26 @@ task('watch', () => {
 			'src/layouts/**/*+(' + lib.config.typeTemplate + ')',
 			'src/slugs/**/*+(' + lib.config.typeTemplate + '|' + lib.config.typeData + ')'
 		],
-		series('views', 'server:reload'))
+		series('build:views', 'server:reload'))
 	
 	// Watch for styles
 	watch([
 			'src/slugs/**/*+(' + lib.config.typeStyle + ')',
 			'src/styles/**/*+(' + lib.config.typeStyle + ')'
 		],
-		series('styles', 'server:reload'))
+		series('build:styles', 'server:reload'))
 	
 	// Watch for scripts
 	watch([
 			'src/slugs/**/*+(' + lib.config.typeScript + ')',
 			'src/scripts/**/*+(' + lib.config.typeScript + ')'
 		],
-		series('scripts', 'server:reload'))
+		series('build:scripts', 'server:reload'))
 	
 	// Watch for media files in any location
 	watch([
 			'src/slugs/**/*+(' + lib.config.typeMedia + ')',
 			'src/media/**/*+(' + lib.config.typeMedia + ')'
 		],
-		series('media', 'server:reload'))
+		series('build:media', 'server:reload'))
 })
