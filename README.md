@@ -20,7 +20,7 @@ Files and folders are the backbones of our slug system. Filenames are used to in
 
 Each time you create a page file ending on `.html|.liquid`, Slugtenberg will automatically attach any data or media file that share the same folder and/or name. This way, if you have `index.liquid`, you can create an `index.json` or `index.yml` to handle data for that specific page inside.
 
-Otherwise, to make global data be available on every page file, add your variables on global config files (`/config[-dev]?.yml`) or put a `.csv` file in the [Data](#file--folder-basics) folder to access it from any page view.
+Otherwise, to make global data be available on every page file, add your variables on global config files (`/config[-dev]?.yml`) or put a `.csv` file in the [Data folder](#file--folder-basics) to access it from any page view.
 
 ## File & Folder Basics
 Start a new file in the desired folder and Just Start Coding™️.
@@ -30,56 +30,79 @@ src/
 │
 ├─ data/
 │  ├─ *.csv
-│  │  └─ Datasheets are parsed and loopable as {{ data.filename }}
+│  │  └─ Datasheet are parsed and loopable at {{ data.filename }}.
 │  │
-│  └─ *.yml
-│     ├─ Data files sharing the same slug will be used as Datasheet's configuration file.
-│     └─ This helps setup parser options such 'use_layout' or column types, among others.
+│  ├─ *(.json|.yml)
+│  │  ├─ Datasheet configuration files matched by slug.
+│  │  └─ Used to setup options such as 'use_layout' or column parser type.
+│  │
+│  └─ [slug]/
+│     ├─ Files inside matching folders will available as global data.
+│     │
+│     ├─ *(.txt)
+│     │  └─ Template content available directly at {{ contents.filename }}.
+│     │
+│     ├─ *(.md|.markdown)
+│     │  ├─ Other template content parsed as Markdown.
+│     │  └─ Available to be iterated using {{ contents.filename }}.
+│     │
+│     ├─ *(.webloc|.xml)
+│     │  ├─ Template links are parsed as Safari Webloc
+│     │  └─ Available to be iterated using {{ links.filename }}.
+│     │
+│     └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
+│        ├─ Template media files are copied directly to Asset folder.
+│        └─ Available to be iterated using {{ media.filename }}.
 │
 ├─ layouts/
 │  └─ *(.html|.liquid)
-│     ├─ Partial layouts can be invoked as {% layout 'filename' %}
-│     └─ also used to render out CSV Datasheets when 'use_layout' is present.
+│     ├─ Partial templates invoked at {% layout 'filename' %}.
+│     └─ Also renders datasheets when 'use_layout' is present.
 │
 ├─ includes/
 │  ├─ *(.html|.liquid)
-│  │  └─ Partial includes can be invoked as {% include 'filename' %}.
+│  │  └─ Partial templates invoked at {% include 'filename' %}.
 │  │
-│  └─ *[^.html|.liquid]
-│     └─ Any other file can be invoked adding the extension as {% include 'filename.svg' %}.
+│  └─ *
+│     └─ Other files can also be invoked by adding the filename and extension.
 │
 ├─ media/
 │  └─ *
-│     ├─ Media files are just copied to the Assets folder
-│     └─ and can be invoked as {{ 'filename.mov' | assetLink }}.
+│     ├─ Media files will be copied to the Assets folder.
+│     ├─ Can be invoked as {{ 'filename.mov' | assetLink }}.
+│     └─ 'assetLink' filter is used to convert filename into an URL.
 │
 ├─ scripts/
 │  └─ *.js
-│     └─ Scripts are parsed as ECMA6, minized and compiled into {{ config.scriptsLink }}.
+│     └─ Scripts parsed as ECMA6, minized and compiled into {{ config.scriptsLink }}.
 │   
 ├─ slugs/
 │  ├─ *(.html|.liquid)
-│  │  ├─ Templates compile into a site view using filename slug as URL.
-│  │  └─ Current slug are always available at {{ current }}.
+│  │  ├─ Template files compiles into a site view.
+│  │  └─ Current page slug are always available at {{ current }}.
 │  │
 │  ├─ *(.json|.yml)
-│  │  └─ Data files that shares the same slug, will be available directly as {{ variables }}.
+│  │  ├─ Data files matched by slug.
+│  │  └─ Data variables are available directly as {{ variables }}.
 │  │
 │  └─ [slug]/
-│     ├─ Files inside slug matching folders will be linked to use as data.
+│     ├─ Files inside matching folders will available as current view data.
 │     ├─ Index files inside this folder are used as main folder view.
 │     │
+│     ├─ *(.txt)
+│     │  └─ Template content available directly at {{ contents.filename }}.
+│     │
 │     ├─ *(.md|.markdown)
-│     │  ├─ Content files are parsed as Markdown
-│     │  └─ and available to be iterated using {{ contents.filename }}.
+│     │  ├─ Other template content parsed as Markdown.
+│     │  └─ Available to be iterated using {{ contents.filename }}.
 │     │
 │     ├─ *(.webloc|.xml)
-│     │  ├─ Link files are parsed as Safari Webloc files
-│     │  └─ and available to be iterated using {{ links.filename }}.
+│     │  ├─ Template links are parsed as Safari Webloc
+│     │  └─ Available to be iterated using {{ links.filename }}.
 │     │
 │     └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
-│        ├─ Asset files are copied to Asset folder
-│        └─ and available as URL to be iterated using {{ media.filename }}.
+│        ├─ Template media files are copied directly to Asset folder.
+│        └─ Available to be iterated using {{ media.filename }}.
 │
 └─ styles/
    └─ *(.scss|.sass|.css)
@@ -89,32 +112,31 @@ src/
 ## Getting started
 This instructions assume you have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Node](https://nodejs.org/es/download/), [Gulp](https://gulpjs.com/docs/en/getting-started/quick-start/) installed and updated on your machine.
 
-1. Open your favorite Terminal
-(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
-2. Clone or download this repository
- ```
- git clone https://github.com/pabliqe/slugtenberg.git ./slugtenberg
- ```
-3. Enter project folder
- ```
- cd slugtenberg
- ```
-4. Install required packages
- ```
- npm install -D
- ```
-5. Build demo project
- ```
- gulp build --dev
- ```
-6. Start the local server
- ```
- gulp server:start --dev
- ```
-7. Browser will popup with your site running on
- ```
- http://localhost:3000
- ```
+1. Open your favorite Terminal (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
+2. Create or access an empty directory to start.
+```
+cd myproject
+```
+3. Download and copy this repository.
+```
+curl -sL https://api.github.com/repos/pabliqe/slugtenberg/tarball | tar xzC . --strip 1
+```
+4. Install required packages.
+```
+npm install -D
+```
+5. Build your demo project.
+```
+gulp build --dev
+```
+6. Get your site up and running.
+```
+gulp server:start --dev
+```
+7. Browser will popup and you are ready to start coding.
+```
+http://localhost:3000
+```
 8. Enjoy
 ( ͡ᵔ ͜ʖ ͡ᵔ )
 
