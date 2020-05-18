@@ -25,9 +25,9 @@ Otherwise, to make global data be available on every page file, add your variabl
 ## File & Folder Basics
 Start a new file in the desired folder and Just Start Coding™️.
 
+**Data Files**
+
 ```
-src/
-│
 ├─ data/
 │  ├─ *.csv
 │  │  └─ Datasheet are parsed and loopable at {{ data.filename }}.
@@ -53,29 +53,49 @@ src/
 │     └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
 │        ├─ Template media files are copied directly to Asset folder.
 │        └─ Available to be iterated using {{ foldername.media.filename }}.
-│
+```
+
+**Template Layouts**
+
+```
 ├─ layouts/
 │  └─ *(.html|.liquid)
 │     ├─ Partial templates invoked at {% layout 'filename' %}.
 │     └─ Also renders datasheets when 'use_layout' is present.
-│
+```
+
+**Template Includes**
+
+```
 ├─ includes/
 │  ├─ *(.html|.liquid)
 │  │  └─ Partial templates invoked at {% include 'filename' %}.
 │  │
 │  └─ *
 │     └─ Other files can also be invoked by adding the filename and extension.
-│
+```
+
+**Media & Asset Files**
+
+```
 ├─ media/
 │  └─ *
 │     ├─ Media files will be copied to the Assets folder.
 │     ├─ Can be invoked as {{ 'filename.mov' | assetLink }}.
 │     └─ 'assetLink' filter is used to convert filename into an URL.
-│
+```
+
+**Javascript Files**
+
+```
 ├─ scripts/
 │  └─ *.js
 │     └─ Scripts parsed as ECMA6, minized and compiled into {{ config.scriptsLink }}.
-│   
+```
+
+**Template Views**
+
+```
 ├─ slugs/
 │  ├─ *(.html|.liquid)
 │  │  ├─ Template files compiles into a site view.
@@ -103,7 +123,11 @@ src/
 │     └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
 │        ├─ Template media files are copied directly to Asset folder.
 │        └─ Available to be iterated using {{ media.filename }}.
-│
+```
+
+**CSS Files**
+
+```
 └─ styles/
    └─ *(.scss|.sass|.css)
       └─ Styles are parsed as CSS, minimized and compiled into {{ config.stylesLink }}
