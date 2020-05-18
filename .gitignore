@@ -10,4 +10,7 @@ Desktop.ini
 .now
 npm-debug.log*
 node_modules
-dist-dev
+
+# Slugtenberg Files
+
+dist-*
