@@ -1,13 +1,13 @@
 # Slugtenberg
-The fastest and simplest compiler to build static websites in minutes with basic automation and many parsers included.
+The fastest and simplest compiler to start building static websites with dynamic data in minutes.
 
 ## Why this?
-Slugtenberg was designed to build *clean and scalable* websites from scratch in the least possible time. Saves you time by not having to deal with servers, databases and infinite library packages; while keeping the benefits of using dynamic data and logic on static.
+Slugtenberg was designed to build *clean and quick* handy websites from scratch. Saves you time by not having to deal with servers, databases and infinite library packages.
 
-All of this thanks to the [database-free slug system](#database-free) based on [files and folders](#file--folder-basics) rendering system that use HTML semantics powered with LiquidJS (a handlebar `{}` language) to inject data from Markdown, JSON, YML, CSV and media files.
+All of this thanks to the [database-free slug system](#database-free) based on [files and folders](#file--folder-basics) rendering system.
 
 ## What it can do?
-* **Zero-configuration required**. Just Start Coding™️.
+* **Zero-configuration required**. Just start coding.
 * Maintain your site contents manipulating files and folders as data.
 * Use *conditionals* and *iterations* to create your pages dynamically based on input data.
 * Include *layouts* and *partials* to build your pages in reusable small pieces. 
@@ -25,9 +25,9 @@ Otherwise, to make global data be available on every page file, add your variabl
 ## File & Folder Basics
 Start a new file in the desired folder and Just Start Coding™️.
 
+**Data Files**
+
 ```
-src/
-│
 ├─ data/
 │  ├─ *.csv
 │  │  └─ Datasheet are parsed and loopable at {{ data.filename }}.
@@ -53,29 +53,49 @@ src/
 │     └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
 │        ├─ Template media files are copied directly to Asset folder.
 │        └─ Available to be iterated using {{ foldername.media.filename }}.
-│
+```
+
+**Template Layouts**
+
+```
 ├─ layouts/
 │  └─ *(.html|.liquid)
 │     ├─ Partial templates invoked at {% layout 'filename' %}.
 │     └─ Also renders datasheets when 'use_layout' is present.
-│
+```
+
+**Template Includes**
+
+```
 ├─ includes/
 │  ├─ *(.html|.liquid)
 │  │  └─ Partial templates invoked at {% include 'filename' %}.
 │  │
 │  └─ *
 │     └─ Other files can also be invoked by adding the filename and extension.
-│
+```
+
+**Media & Asset Files**
+
+```
 ├─ media/
 │  └─ *
 │     ├─ Media files will be copied to the Assets folder.
 │     ├─ Can be invoked as {{ 'filename.mov' | assetLink }}.
 │     └─ 'assetLink' filter is used to convert filename into an URL.
-│
+```
+
+**Javascript Files**
+
+```
 ├─ scripts/
 │  └─ *.js
 │     └─ Scripts parsed as ECMA6, minized and compiled into {{ config.scriptsLink }}.
-│   
+```
+
+**Template Views**
+
+```
 ├─ slugs/
 │  ├─ *(.html|.liquid)
 │  │  ├─ Template files compiles into a site view.
@@ -103,7 +123,11 @@ src/
 │     └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
 │        ├─ Template media files are copied directly to Asset folder.
 │        └─ Available to be iterated using {{ media.filename }}.
-│
+```
+
+**CSS Files**
+
+```
 └─ styles/
    └─ *(.scss|.sass|.css)
       └─ Styles are parsed as CSS, minimized and compiled into {{ config.stylesLink }}
