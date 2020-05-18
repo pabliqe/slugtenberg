@@ -36,23 +36,23 @@ src/
 │  │  ├─ Datasheet configuration files matched by slug.
 │  │  └─ Used to setup options such as 'use_layout' or column parser type.
 │  │
-│  └─ [slug]/
-│     ├─ Files inside matching folders will available as global data.
+│  └─ */
+│     ├─ Folders will available as global data using.
 │     │
 │     ├─ *(.txt)
-│     │  └─ Template content available directly at {{ contents.filename }}.
+│     │  └─ Template content available directly at {{ foldername.contents.filename }}.
 │     │
 │     ├─ *(.md|.markdown)
 │     │  ├─ Other template content parsed as Markdown.
-│     │  └─ Available to be iterated using {{ contents.filename }}.
+│     │  └─ Available to be iterated using {{ foldername.contents.filename }}.
 │     │
 │     ├─ *(.webloc|.xml)
 │     │  ├─ Template links are parsed as Safari Webloc
-│     │  └─ Available to be iterated using {{ links.filename }}.
+│     │  └─ Available to be iterated using {{ foldername.links.filename }}.
 │     │
 │     └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
 │        ├─ Template media files are copied directly to Asset folder.
-│        └─ Available to be iterated using {{ media.filename }}.
+│        └─ Available to be iterated using {{ foldername.media.filename }}.
 │
 ├─ layouts/
 │  └─ *(.html|.liquid)
@@ -86,7 +86,7 @@ src/
 │  │  └─ Data variables are available directly as {{ variables }}.
 │  │
 │  └─ [slug]/
-│     ├─ Files inside matching folders will available as current view data.
+│     ├─ Folders matching [slug] will attached as current view data.
 │     ├─ Index files inside this folder are used as main folder view.
 │     │
 │     ├─ *(.txt)
