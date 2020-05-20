@@ -16,7 +16,7 @@ All of this thanks to the [database-free slug system](#database-free) based on [
 
 ## Database-Free
 
-Files and folders are the backbones of our slug system. Filenames are used to internally link views, media and information to an unique URL Slug for public access.
+Files and folders are the backbones of our slug system. Filenames are used to internally link views, media and information into a unique URL slug for public access.
 
 Each time you create a page file ending on `.html|.liquid`, Slugtenberg will automatically attach any data or media file that share the same folder and/or name. This way, if you have `index.liquid`, you can create an `index.json` or `index.yml` to handle data for that specific page inside.
 
@@ -37,7 +37,7 @@ Start a new file in the desired folder and Just Start Coding™️.
 │  │  └─ Used to setup options such as 'use_layout' or column parser type.
 │  │
 │  └─ */
-│     ├─ Folders will available as global data using.
+│     ├─ Folders holds data files that will be available as global data.
 │     │
 │     ├─ *(.txt)
 │     │  └─ Template content available directly at {{ foldername.contents.filename }}.
@@ -105,9 +105,9 @@ Start a new file in the desired folder and Just Start Coding™️.
 │  │  ├─ Data files matched by slug.
 │  │  └─ Data variables are available directly as {{ variables }}.
 │  │
-│  └─ [slug]/
-│     ├─ Folders matching [slug] will attached as current view data.
-│     ├─ Index files inside this folder are used as main folder view.
+│  └─ (slug)/
+│     ├─ Folders matching (slug) will be attached as input data to template view.
+│     ├─ Index files inherit slug name from folder.
 │     │
 │     ├─ *(.txt)
 │     │  └─ Template content available directly at {{ contents.filename }}.
