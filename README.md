@@ -72,7 +72,7 @@ Start a new file in the desired folder and Just Start Coding™️.
 │  │  └─ Partial templates invoked at {% include 'filename' %}.
 │  │
 │  └─ *
-│     └─ Other files can also be invoked by adding the filename and extension.
+│     └─ Other files can also be invoked with the extension as {% include 'filename.svg' %}.
 ```
 
 **Media & Asset Files**
