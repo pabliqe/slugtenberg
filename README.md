@@ -151,11 +151,11 @@ npm install -D
 ```
 5. Build your demo project.
 ```
-npm run build --dev
+npm run build dev
 ```
 6. Get your site up and running.
 ```
-npm run start --dev
+npm run start dev
 ```
 7. Browser will popup and you are ready to start coding.
 ```
