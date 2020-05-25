@@ -151,11 +151,11 @@ npm install -D
 ```
 5. Build your demo project.
 ```
-gulp build --dev
+npm run build --dev
 ```
 6. Get your site up and running.
 ```
-gulp server:start --dev
+npm run server:start --dev
 ```
 7. Browser will popup and you are ready to start coding.
 ```
@@ -167,7 +167,7 @@ http://localhost:3000
 ## Available commands
 
 ```
-gulp [command] [options]?
+npm run [command] [options]?
 
 Commands:
  server:start
