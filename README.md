@@ -151,11 +151,11 @@ npm install -D
 ```
 5. Build your demo project.
 ```
-npm run build dev
+npm run build
 ```
 6. Get your site up and running.
 ```
-npm run start dev
+npm run start
 ```
 7. Browser will popup and you are ready to start coding.
 ```
@@ -166,5 +166,5 @@ http://localhost:3000
 
 Once you are ready to publish your site, production build will output the files compressed and optimized into your `/dist` folder. Just upload it to your server or try a serverless option such as [Now/Vercel CLI](https://vercel.com/docs/cli#getting-started) or [GitHub Pages](https://pages.github.com/) to open your site to public.
 ```
-npm run build
+npm run prod
 ```
