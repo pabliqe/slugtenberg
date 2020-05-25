@@ -163,3 +163,8 @@ http://localhost:3000
 ```
 8. Enjoy
 ( ͡ᵔ ͜ʖ ͡ᵔ )
+
+Once you are ready to publish your site, production build will output the files compressed and optimized into your `/dist` folder. Just upload it to your server or try a serverless option such as [Now/Vercel CLI](https://vercel.com/docs/cli#getting-started) or [GitHub Pages](https://pages.github.com/) to open your site to public.
+```
+npm run build
+```
