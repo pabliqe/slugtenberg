@@ -155,7 +155,7 @@ npm run build --dev
 ```
 6. Get your site up and running.
 ```
-npm run server:start --dev
+npm run start --dev
 ```
 7. Browser will popup and you are ready to start coding.
 ```
@@ -163,22 +163,3 @@ http://localhost:3000
 ```
 8. Enjoy
 ( ͡ᵔ ͜ʖ ͡ᵔ )
-
-## Available commands
-
-```
-npm run [command] [options]?
-
-Commands:
- server:start
- server:reload
- build
- build:views
- build:styles
- build:scripts
- build:media
- watch
- 
-Options:
- --dev
-```
