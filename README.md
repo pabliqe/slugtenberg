@@ -134,7 +134,7 @@ Each folder has a one or more functions as stated below. Start a new file matchi
 ```
 
 ## Getting started
-This instructions assume you have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Node](https://nodejs.org/es/download/), [Gulp](https://gulpjs.com/docs/en/getting-started/quick-start/) installed and updated on your machine.
+This instructions assume you have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Node](https://nodejs.org/es/download/) installed on your machine.
 
 1. Open your favorite Terminal (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
 2. Create or access an empty directory to start.
