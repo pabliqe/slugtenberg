@@ -7,7 +7,7 @@ Slugtenberg was designed to compile *clean and quick* handy websites from scratc
 All of this thanks to the [database-free slug system](#database-free) based on [files and folders](#file--folder-basics) rendering system.
 
 ## What it can do?
-* 👌 **Zero-configuration required**. Just start coding.
+* 👌 **Zero-configuration required**. _Just Start Coding™️_.
 * 📂 Maintain your site contents manipulating files and folders as data.
 * 🤔 Use *conditionals* and *iterations* to create your pages dynamically based on input data.
 * 🏗 Include *layouts* and *partials* to build your pages in reusable small pieces. 
@@ -22,8 +22,8 @@ Each time you create a page file ending on `.html|.liquid`, Slugtenberg will aut
 
 Otherwise, to make global data be available on every page file, add your variables on global config files (`/config[-dev]?.yml`) or put a `.csv` file in the [Data folder](#file--folder-basics) to access it from any page view.
 
-## File & Folder Basics
-Start a new file in the desired folder and Just Start Coding™️.
+## File & Folder Structure
+Each folder has a one or more functions as stated below. Start a new file matching filenames to link views, media and data.
 
 **Data Files**
 
