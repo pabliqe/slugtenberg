@@ -8,10 +8,15 @@ All of this thanks to the [database-free slug system](#database-free) based on [
 
 ## What it can do?
 👌 **Zero-configuration required**. _Just Start Coding™️_.
+
 📂 Maintain your site contents manipulating files and folders as data.
+
 🤔 Use *conditionals* and *iterations* to create your pages dynamically based on input data.
+
 🏗 Include *layouts* and *partials* to build your pages in reusable small pieces. 
+
 📊 Use spreadsheets as database by automatically make pages using a CSV file.
+
 🚀 Live preview your site locally and watch for file changes.
 
 ## Database-Free
