@@ -39,8 +39,9 @@
 		"yargs": "^14.2.0"
 	},
 	"scripts": {
-		"build": "gulp build",
-		"start": "gulp server:start",
-		"watch": "gulp watch"
+		"prod": "gulp build",
+		"build": "gulp build --dev",
+		"start": "gulp server:start --dev",
+		"watch": "gulp watch --dev"
 	}
 }
