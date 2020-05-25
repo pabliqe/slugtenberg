@@ -13,6 +13,7 @@
 		"@babel/preset-env": "^7.8.6",
 		"@tuanpham-dev/gulp-liquidjs": "git+https://github.com/pabliqe/gulp-liquidjs.git",
 		"browser-sync": "^2.26.7",
+		"chalk": "^4.0.0",
 		"csv-parse": "^4.9.0",
 		"extend": "^3.0.2",
 		"fancy-log": "^1.3.3",
