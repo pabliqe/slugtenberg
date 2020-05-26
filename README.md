@@ -7,17 +7,17 @@ Slugtenberg was designed to compile *clean and quick* handy websites from scratc
 All of this thanks to the [database-free slug system](#database-free) based on [files and folders](#file--folder-basics) rendering system.
 
 ## What it can do?
-👌 **Zero-configuration required**. _Just Start Coding™️_.
+👌  **Zero-configuration required**. _Just Start Coding™️_.
 
-📂 Maintain your site contents manipulating files and folders as data.
+📂  Maintain your site contents manipulating files and folders as data.
 
-🤔 Use *conditionals* and *iterations* to create your pages dynamically based on input data.
+🤔  Use *conditionals* and *iterations* to create your pages dynamically based on input data.
 
-🏗 Include *layouts* and *partials* to build your pages in reusable small pieces. 
+🏗  Include *layouts* and *partials* to build your pages in reusable small pieces. 
 
-📊 Use spreadsheets as database by automatically make pages using a CSV file.
+📊  Use spreadsheets as database by automatically make pages using a CSV file.
 
-🚀 Live preview your site locally and watch for file changes.
+🚀  Live preview your site locally and watch for file changes.
 
 ## Database-Free
 
@@ -33,109 +33,109 @@ Each folder has a one or more functions as stated below. Start a new file matchi
 **Data Files**
 
 ```
-├─ data/
-│  ├─ *.csv
-│  │  └─ Datasheet are parsed and loopable at {{ data.filename }}.
-│  │
-│  ├─ *(.json|.yml)
-│  │  ├─ Datasheet configuration files matched by slug.
-│  │  └─ Used to setup options such as 'use_layout' or column parser type.
-│  │
-│  └─ */
-│     ├─ Folders holds data files that will be available as global data.
-│     │
-│     ├─ *(.txt)
-│     │  └─ Template content available directly at {{ foldername.contents.filename }}.
-│     │
-│     ├─ *(.md|.markdown)
-│     │  ├─ Other template content parsed as Markdown.
-│     │  └─ Available to be iterated using {{ foldername.contents.filename }}.
-│     │
-│     ├─ *(.webloc|.xml)
-│     │  ├─ Template links are parsed as Safari Webloc
-│     │  └─ Available to be iterated using {{ foldername.links.filename }}.
-│     │
-│     └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
-│        ├─ Template media files are copied directly to Asset folder.
-│        └─ Available to be iterated using {{ foldername.media.filename }}.
+data/
+├─ *.csv
+│  └─ Datasheet are parsed and loopable at {{ data.filename }}.
+│
+├─ *(.json|.yml)
+│  ├─ Datasheet configuration files matched by slug.
+│  └─ Used to setup options such as 'use_layout' or column parser type.
+│
+└─ */
+   ├─ Folders holds data files that will be available as global data.
+   │
+   ├─ *(.txt)
+   │  └─ Template content available directly at {{ foldername.contents.filename }}.
+   │
+   ├─ *(.md|.markdown)
+   │  ├─ Other template content parsed as Markdown.
+   │  └─ Available to be iterated using {{ foldername.contents.filename }}.
+   │
+   ├─ *(.webloc|.xml)
+   │  ├─ Template links are parsed as Safari Webloc
+   │  └─ Available to be iterated using {{ foldername.links.filename }}.
+   │
+   └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
+      ├─ Template media files are copied directly to Asset folder.
+      └─ Available to be iterated using {{ foldername.media.filename }}.
 ```
 
 **Template Layouts**
 
 ```
-├─ layouts/
-│  └─ *(.html|.liquid)
-│     ├─ Partial templates invoked at {% layout 'filename' %}.
-│     └─ Also renders datasheets when 'use_layout' is present.
+layouts/
+└─ *(.html|.liquid)
+   ├─ Partial templates invoked at {% layout 'filename' %}.
+   └─ Also renders datasheets when 'use_layout' is present.
 ```
 
 **Template Includes**
 
 ```
-├─ includes/
-│  ├─ *(.html|.liquid)
-│  │  └─ Partial templates invoked at {% include 'filename' %}.
-│  │
-│  └─ *
-│     └─ Other files can also be invoked with the extension as {% include 'filename.svg' %}.
+includes/
+├─ *(.html|.liquid)
+│  └─ Partial templates invoked at {% include 'filename' %}.
+│
+└─ *
+   └─ Other files can also be invoked with the extension as {% include 'filename.svg' %}.
 ```
 
 **Media & Asset Files**
 
 ```
-├─ media/
-│  └─ *
-│     ├─ Media files will be copied to the Assets folder.
-│     ├─ Can be invoked as {{ 'filename.mov' | assetLink }}.
-│     └─ 'assetLink' filter is used to convert filename into an URL.
+media/
+└─ *
+   ├─ Media files will be copied to the Assets folder.
+   ├─ Can be invoked as {{ 'filename.mov' | assetLink }}.
+   └─ 'assetLink' filter is used to convert filename into an URL.
 ```
 
 **Javascript Files**
 
 ```
-├─ scripts/
-│  └─ *.js
-│     └─ Scripts parsed as ECMA6, minized and compiled into {{ config.scriptsLink }}.
+scripts/
+└─ *.js
+   └─ Scripts parsed as ECMA6, minized and compiled into {{ config.scriptsLink }}.
 ```
 
 **Template Views**
 
 ```
-├─ slugs/
-│  ├─ *(.html|.liquid)
-│  │  ├─ Template files compiles into a site view.
-│  │  └─ Current page slug are always available at {{ current }}.
-│  │
-│  ├─ *(.json|.yml)
-│  │  ├─ Data files matched by slug.
-│  │  └─ Data variables are available directly as {{ variables }}.
-│  │
-│  └─ (slug)/
-│     ├─ Folders matching (slug) will be attached as input data to template view.
-│     ├─ Index files inherit slug name from folder.
-│     │
-│     ├─ *(.txt)
-│     │  └─ Template content available directly at {{ contents.filename }}.
-│     │
-│     ├─ *(.md|.markdown)
-│     │  ├─ Other template content parsed as Markdown.
-│     │  └─ Available to be iterated using {{ contents.filename }}.
-│     │
-│     ├─ *(.webloc|.xml)
-│     │  ├─ Template links are parsed as Safari Webloc
-│     │  └─ Available to be iterated using {{ links.filename }}.
-│     │
-│     └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
-│        ├─ Template media files are copied directly to Asset folder.
-│        └─ Available to be iterated using {{ media.filename }}.
+slugs/
+├─ *(.html|.liquid)
+│  ├─ Template files compiles into a site view.
+│  └─ Current page slug are always available at {{ current }}.
+│
+├─ *(.json|.yml)
+│  ├─ Data files matched by slug.
+│  └─ Data variables are available directly as {{ variables }}.
+│
+└─ (slug)/
+   ├─ Folders matching (slug) will be attached as input data to template view.
+   ├─ Index files inherit slug name from folder.
+   │
+   ├─ *(.txt)
+   │  └─ Template content available directly at {{ contents.filename }}.
+   │
+   ├─ *(.md|.markdown)
+   │  ├─ Other template content parsed as Markdown.
+   │  └─ Available to be iterated using {{ contents.filename }}.
+   │
+   ├─ *(.webloc|.xml)
+   │  ├─ Template links are parsed as Safari Webloc
+   │  └─ Available to be iterated using {{ links.filename }}.
+   │
+   └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
+      ├─ Template media files are copied directly to Asset folder.
+      └─ Available to be iterated using {{ media.filename }}.
 ```
 
 **CSS Files**
 
 ```
-└─ styles/
-   └─ *(.scss|.sass|.css)
-      └─ Styles are parsed as CSS, minimized and compiled into {{ config.stylesLink }}
+styles/
+└─ *(.scss|.sass|.css)
+   └─ Styles are parsed as CSS, minimized and compiled into {{ config.stylesLink }}
 ```
 
 ## Getting started
