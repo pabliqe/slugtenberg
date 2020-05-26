@@ -140,6 +140,7 @@ slugs/
 
 ```
 styles/
+│
 └─ *(.scss|.sass|.css)
    └─ Styles are parsed as CSS, minimized and compiled into {{ config.stylesLink }}
 ```
