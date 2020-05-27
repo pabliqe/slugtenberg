@@ -1,3 +1,10 @@
+/* Happy Coding!
+—————————————————————————————————————————————————————————
+file:			gulpfile.js
+version: 		0.0.1
+last_changes:	.
+—————————————————————————————————————————————————————————
+*/
 const {task,watch,series} = require('gulp')
 const lib = require('require-dir')('./lib')
 
