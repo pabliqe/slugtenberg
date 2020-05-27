@@ -1,8 +1,7 @@
 # Slugtenberg
-The fastest and simplest compiler to start building static websites with dynamic data in minutes.
+Slugtenberg was designed to compile *clean and quick* handy websites from scratch.
 
-## Why this?
-Slugtenberg was designed to compile *clean and quick* handy websites from scratch. Saves you time by not having to deal with servers, databases and infinite library packages.
+Saves you time by not having to deal with servers, databases and infinite library packages.
 
 All of this thanks to the [database-free slug system](#database-free) based on [files and folders](#file--folder-basics) rendering system.
 
