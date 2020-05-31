@@ -33,6 +33,7 @@ Template contents in Data folder are used to create global variables available i
 Datasheets are useful to import your data from software such as Excel, Numbers or Google Spreadsheets.
 
 ```
+/data
 │
 ├─ *.csv
 │  └─ Datasheet are parsed and loopable at {{ data.filename }}.
@@ -61,6 +62,7 @@ Datasheets are useful to import your data from software such as Excel, Numbers o
 Layout files works as base templates to put in slug views. [Learn more about partials on LiquidJS](https://liquidjs.com/tutorials/partials-and-layouts.html)
 
 ```
+/layouts
 │
 └─ *(.html|.liquid)
    ├─ Partial templates invoked at {% layout 'filename' %}
@@ -72,6 +74,7 @@ Layout files works as base templates to put in slug views. [Learn more about par
 Include files are template partials to include in your slug views. [Learn more about partials on LiquidJS](https://liquidjs.com/tutorials/partials-and-layouts.html)
 
 ```
+/includes
 │
 ├─ *(.html|.liquid)
 │  └─ Partial templates invoked at {% include 'filename' %}.
@@ -96,6 +99,7 @@ media/
 Javascript files are unified and compressed using [Babel](https://babeljs.io/) to bring ES6+ scripting to your slug views.
 
 ```
+/js
 │
 └─ *.js
    └─ Unified script file URL always available in {{ config.scriptsLink }}.
@@ -108,6 +112,7 @@ Matched folders will be attached as input data to template view.
 Template contents support Markdown, text, links, media, among others.
 
 ```
+/slugs
 │
 ├─ *(.html|.liquid) 
 │  ├─ Current page slug are always available at {{ current }}.
@@ -116,7 +121,7 @@ Template contents support Markdown, text, links, media, among others.
 ├─ *(.json|.yml)
 │  └─ Data variables are available directly as {{ variables }}.
 │
-└─ (slug)/
+└─ [slug]/
    │
    ├─ *(.txt)
    │  └─ Template content available directly at {{ contents.filename }}.
@@ -137,6 +142,7 @@ Template contents support Markdown, text, links, media, among others.
 [SASS](https://sass-lang.com/guide) stylesheets are unified and compressed into CSS to quickly style your slug views.
 
 ```
+styles/
 │
 └─ *(.scss|.sass|.css)
    └─ Unified style file URL always available in {{ config.stylesLink }}
