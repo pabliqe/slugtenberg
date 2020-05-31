@@ -42,7 +42,7 @@ Datasheets are useful to import your data from software such as Excel, Numbers o
 │  └─ Options to setup Datasheet parser:
 │         'use_layout' selects a layout to print data rows in pages.
 │         'column_slug' indicates the column used in output's slugs.
-│         'columns' holds columns id to set data type parsing options (string,array)
+│         'columns' holds columns id to set data parsing options (type:array)
 │
 └─ dirname/
    │
