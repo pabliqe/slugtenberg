@@ -15,14 +15,17 @@ All of this thanks to the [database-free slug system](#database-free) based on [
 
 ## Database-Free
 
-Files and folders are the backbones of our slug system. Filenames are used to internally link views, media and information into a unique URL slug for public access.
+<img src="https://www.dropbox.com/s/3egsya7fpc6ym3v/folders.gif?raw=1" width="640">
 
-Each time you create a page file ending on `.html|.liquid`, Slugtenberg will automatically attach any data or media file that share the same folder and/or name. This way, if you have `index.liquid`, you can create an `index.json` or `index.yml` to handle data for that specific page inside.
+Files and folders are the backbones of our slug system. Filenames are used to internally link views, media and information into a unique site URL. Each time you create a page file ending on [Slug folder](#file--folder-basics), Slugtenberg will automatically attach any data or media file that share the same folder and/or file name.
 
-Otherwise, to make global data be available on every page file, add your variables on global config files (`/config[-dev]?.yml`) or put a `.csv` file in the [Data folder](#file--folder-basics) to access it from any page view.
+This way, if you have `index.liquid`, you can create an `index.json` or `index.yml` to handle data for that specific page inside. Also you can make global data to be accessed from any page view, by creating these files in your [Data folder](#file--folder-basics).
+
+<img src="https://www.dropbox.com/s/pfwdevz0ywpcxz9/contents.gif?raw=1" width="640">
 
 ## File & Folder Structure
-Each folder has a one or more functions as stated below. Start a new file matching filenames to link views, media and data.
+
+Each folder has a one or more functions as stated below...
 
 **Data Files**
 
