@@ -29,14 +29,14 @@ Each folder has a one or more functions as stated below...
 
 **▶︎ Data Folder**
 
-Template contents in Data folder are used to create global variables available in every slug view.
+Files in Data folder are used to create global variables available in every slug view.
 Datasheets are useful to import your data from software such as Excel, Numbers or Google Spreadsheets.
 
 ```
 /data
 │
 ├─ *.csv
-│  └─ Datasheet are attached at {{ data.filename }}.
+│  └─ Datasheets are attached at {{ data.filename }}.
 │
 ├─ *(.json|.yml)
 │  └─ Options to setup Datasheet parser:
@@ -53,7 +53,7 @@ Datasheets are useful to import your data from software such as Excel, Numbers o
    │  └─ Content file attached at {{ contents.filename }}.
    │
    ├─ *(.webloc|.xml)
-   │  └─ Safari link file attached at {{ links.filename }}.
+   │  └─ Link file attached at {{ links.filename }}.
    │
    └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
       └─ Media file URL attached in {{ media.filename }}.
@@ -61,7 +61,7 @@ Datasheets are useful to import your data from software such as Excel, Numbers o
 
 **▶︎ Layout Folder**
 
-Layout files works as base templates to put in slug views. [Learn more about partials on LiquidJS](https://liquidjs.com/tutorials/partials-and-layouts.html)
+Layout files works are base templates to build your slug views on top of. [Learn more about partials on LiquidJS](https://liquidjs.com/tutorials/partials-and-layouts.html)
 
 ```
 /layouts
@@ -87,7 +87,7 @@ Include files are template partials to include in your slug views. [Learn more a
 
 **▶︎ Media Folder**
 
-Media files will be copied to the `/dist` folder. `assetLink` is a filter to convert any filename into an asset URL.
+Media files will be copied to the `/dist` folder. `assetLink` is a filter to converts any filename into an asset URL.
 
 ```
 /media
@@ -109,7 +109,7 @@ Javascript files are unified and compressed using [Babel](https://babeljs.io/) t
 
 **▶︎ Slug Folder**
 
-Template files compiles into a site view and match Data files by slug. Matched folders will be attached as input data to template view. Template contents support Markdown, text, links, media, among others.
+Files into Slug Folder will be used to build the site hierarchy. Filenames are _slugs_, used to match _media_ and _data_ files.
 
 ```
 /slugs
