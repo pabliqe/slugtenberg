@@ -15,7 +15,7 @@ All of this thanks to the [database-free slug system](#database-free) based on [
 
 ## Database-Free
 
-Files and folders are the backbones of our slug system. Filenames are used to internally link views, media and information into a unique site URL. Each time you create a new file in the [Slug Folder](#file--folder-basics), Slugtenberg will automatically attach any data or media file that share the same folder and/or file name.
+Files and folders are the backbones of our slug system. Filenames are used to internally link Views, Media and information into a unique site URL. Each time you create a new file in the [Slug Folder](#file--folder-basics), Slugtenberg will automatically attach any data or media file that share the same folder and/or file name.
 
 ![Animated image showing how duplicating a folder creates a new article](https://www.dropbox.com/s/3egsya7fpc6ym3v/folders.gif?raw=1)
 
@@ -27,7 +27,10 @@ This way, if you have `index.liquid`, you can create an `index.json` or `index.y
 
 Each folder has a one or more functions as stated below...
 
-**Data Folder**
+**▶︎ Data Folder**
+
+Template contents in Data folder are used to create global variables available in every slug view.
+Datasheets are useful to import your data from software such as Excel, Numbers or Google Spreadsheets.
 
 ```
 │
@@ -35,38 +38,38 @@ Each folder has a one or more functions as stated below...
 │  └─ Datasheet are parsed and loopable at {{ data.filename }}.
 │
 ├─ *(.json|.yml)
-│  ├─ Datasheet configuration files matched by slug.
 │  └─ Used to setup options such as 'use_layout' or column parser type.
 │
-└─ */
+└─ [foldername]/
    ├─ Folders holds data files that will be available as global data.
    │
    ├─ *(.txt)
    │  └─ Template content available directly at {{ foldername.contents.filename }}.
    │
    ├─ *(.md|.markdown)
-   │  ├─ Other template content parsed as Markdown.
    │  └─ Available to be iterated using {{ foldername.contents.filename }}.
    │
    ├─ *(.webloc|.xml)
-   │  ├─ Template links are parsed as Safari Webloc
    │  └─ Available to be iterated using {{ foldername.links.filename }}.
    │
    └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
-      ├─ Template media files are copied directly to Asset folder.
       └─ Available to be iterated using {{ foldername.media.filename }}.
 ```
 
-**Layout Folder**
+**▶︎ Layout Folder**
+
+Layout files works as base templates to put in slug views. [Learn more about partials on LiquidJS](https://liquidjs.com/tutorials/partials-and-layouts.html)
 
 ```
 │
 └─ *(.html|.liquid)
-   ├─ Partial templates invoked at {% layout 'filename' %}.
-   └─ Also renders datasheets when 'use_layout' is present.
+   ├─ Partial templates invoked at {% layout 'filename' %}
+   └─ also renders datasheets when 'use_layout' is present.
 ```
 
-**Include Folder**
+**▶︎ Include Folder**
+
+Include files are template partials to include in your slug views. [Learn more about partials on LiquidJS](https://liquidjs.com/tutorials/partials-and-layouts.html)
 
 ```
 │
@@ -77,63 +80,66 @@ Each folder has a one or more functions as stated below...
    └─ Other files can also be invoked with the extension as {% include 'filename.svg' %}.
 ```
 
-**Media Folder**
+**▶︎ Media Folder**
+
+Media files will be copied to the _dist_ folder. 'assetLink' is a filter to convert any filename into an asset URL.
 
 ```
 media/
 │
 └─ *
-   ├─ Media files will be copied to the Assets folder.
-   ├─ Can be invoked as {{ 'filename.mov' | assetLink }}.
-   └─ 'assetLink' filter is used to convert filename into an URL.
+   └─ Can be invoked as {{ 'filename.mov' | assetLink }}.
 ```
 
-**Script Folder**
+**▶︎ Script Folder**
+
+Javascript files are unified and compressed using [Babel](https://babeljs.io/) to bring ES6+ scripting to your slug views.
 
 ```
 │
 └─ *.js
-   └─ Scripts parsed as ECMA6, minized and compiled into {{ config.scriptsLink }}.
+   └─ Unified script file URL always available in {{ config.scriptsLink }}.
 ```
 
-**Slug Folder**
+**▶︎ Slug Folder**
+
+Template files compiles into a site view and match Data files by slug.
+Matched folders will be attached as input data to template view.
+Template contents support Markdown, text, links, media, among others.
 
 ```
 │
-├─ *(.html|.liquid)
-│  ├─ Template files compiles into a site view.
-│  └─ Current page slug are always available at {{ current }}.
+├─ *(.html|.liquid) 
+│  ├─ Current page slug are always available at {{ current }}.
+│  └─ «index» files inherit slug name from folder.
 │
 ├─ *(.json|.yml)
-│  ├─ Data files matched by slug.
 │  └─ Data variables are available directly as {{ variables }}.
 │
 └─ (slug)/
-   ├─ Folders matching (slug) will be attached as input data to template view.
-   ├─ Index files inherit slug name from folder.
    │
    ├─ *(.txt)
    │  └─ Template content available directly at {{ contents.filename }}.
    │
    ├─ *(.md|.markdown)
-   │  ├─ Other template content parsed as Markdown.
+   │  ├─ 
    │  └─ Available to be iterated using {{ contents.filename }}.
    │
    ├─ *(.webloc|.xml)
-   │  ├─ Template links are parsed as Safari Webloc
    │  └─ Available to be iterated using {{ links.filename }}.
    │
    └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
-      ├─ Template media files are copied directly to Asset folder.
       └─ Available to be iterated using {{ media.filename }}.
 ```
 
-**Style Folder**
+**▶︎ Style Folder**
+
+[SASS](https://sass-lang.com/guide) stylesheets are unified and compressed into CSS to quickly style your slug views.
 
 ```
 │
 └─ *(.scss|.sass|.css)
-   └─ Styles are parsed as CSS, minimized and compiled into {{ config.stylesLink }}
+   └─ Unified style file URL always available in {{ config.stylesLink }}
 ```
 
 ## Getting started
