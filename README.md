@@ -30,7 +30,6 @@ Each folder has a one or more functions as stated below...
 **Data Folder**
 
 ```
-data/
 │
 ├─ *.csv
 │  └─ Datasheet are parsed and loopable at {{ data.filename }}.
@@ -58,20 +57,18 @@ data/
       └─ Available to be iterated using {{ foldername.media.filename }}.
 ```
 
-**Template Layouts**
+**Layout Folder**
 
 ```
-layouts/
 │
 └─ *(.html|.liquid)
    ├─ Partial templates invoked at {% layout 'filename' %}.
    └─ Also renders datasheets when 'use_layout' is present.
 ```
 
-**Template Includes**
+**Include Folder**
 
 ```
-includes/
 │
 ├─ *(.html|.liquid)
 │  └─ Partial templates invoked at {% include 'filename' %}.
@@ -80,7 +77,7 @@ includes/
    └─ Other files can also be invoked with the extension as {% include 'filename.svg' %}.
 ```
 
-**Media & Asset Files**
+**Media Folder**
 
 ```
 media/
@@ -91,19 +88,17 @@ media/
    └─ 'assetLink' filter is used to convert filename into an URL.
 ```
 
-**Javascript Files**
+**Script Folder**
 
 ```
-scripts/
 │
 └─ *.js
    └─ Scripts parsed as ECMA6, minized and compiled into {{ config.scriptsLink }}.
 ```
 
-**Template Views**
+**Slug Folder**
 
 ```
-slugs/
 │
 ├─ *(.html|.liquid)
 │  ├─ Template files compiles into a site view.
@@ -133,10 +128,9 @@ slugs/
       └─ Available to be iterated using {{ media.filename }}.
 ```
 
-**CSS Files**
+**Style Folder**
 
 ```
-styles/
 │
 └─ *(.scss|.sass|.css)
    └─ Styles are parsed as CSS, minimized and compiled into {{ config.stylesLink }}
