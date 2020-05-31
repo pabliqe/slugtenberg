@@ -52,7 +52,7 @@ Datasheets are useful to import your data from software such as Excel, Numbers o
    ├─ *(.md|.markdown) 
    │  └─ Content file attached at {{ contents.filename }}.
    │
-   ├─ *(.webloc|.xml)
+   ├─ *(.webloc)
    │  └─ Link file attached at {{ links.filename }}.
    │
    └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
@@ -134,7 +134,7 @@ Files here will be used to build the site hierarchy. Filenames are _slugs_, used
    ├─ *(.md|.markdown) 
    │  └─ Content file attached at {{ contents.filename }}.
    │
-   ├─ *(.webloc|.xml)
+   ├─ *(.webloc)
    │  └─ Safari link file attached at {{ links.filename }}.
    │
    └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
