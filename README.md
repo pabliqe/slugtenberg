@@ -1,7 +1,7 @@
 # Slugtenberg
-Slugtenberg was designed to compile *clean and quick* handy websites from scratch.
+Slugtenberg was designed to compile _clean and quick_ handy websites from scratch.
 
-Saves you time by not having to deal with servers, databases and infinite library packages.
+Saves you time by not having to deal with servers, databases and packages.
 
 All thanks to the [database-free slug system](#database-free) based on [files and folders](#file--folder-basics) rendering system.
 
@@ -11,7 +11,7 @@ All thanks to the [database-free slug system](#database-free) based on [files an
 * Use *conditionals* and *iterations* to create your pages dynamically based on input data.
 * Include *layouts* and *partials* to build your pages in reusable small pieces. 
 * Use _spreadsheet as database_ by automatically make pages using a CSV file.
-* Preview your site locally and watch for file changes.
+* Preview your site locally and _watch live file changes_.
 
 ## Database-Free
 
@@ -98,7 +98,7 @@ Media files will be copied to the `/dist` folder. `assetLink` is a filter to con
 
 **▶︎ Script Folder**
 
-Javascript files are unified and compressed using [Babel](https://babeljs.io/) to bring _ES6+_ scripting to your slug views.
+Javascript files are unified and compressed using [Babel](https://babeljs.io/) to bring ES6+ scripting to your slug views.
 
 ```
 /js
@@ -109,7 +109,7 @@ Javascript files are unified and compressed using [Babel](https://babeljs.io/) t
 
 **▶︎ Slug Folder**
 
-Files into Slug Folder will be used to build the site hierarchy. Filenames are _slugs_, used to match _media_ and _data_ files.
+Files into Slug Folder will be used to build the site hierarchy. Filenames are _slugs_, used to match media and data files.
 
 ```
 /slugs
@@ -187,4 +187,4 @@ http://localhost:3000
 npm run prod
 ```
 
-_Production_ build will output the files compressed and optimized into your `/dist` folder. Just upload it to your server or try a serverless option such as [Now/Vercel CLI](https://vercel.com/docs/cli#getting-started) or [GitHub Pages](https://pages.github.com/) to open your site to public.
+Production build will output the files compressed and optimized into your `/dist` folder. Just upload it to your server or try a serverless option such as [Now/Vercel CLI](https://vercel.com/docs/cli#getting-started) or [GitHub Pages](https://pages.github.com/) to open your site to public.
