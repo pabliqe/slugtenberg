@@ -29,7 +29,7 @@ Each folder has a one or more functions as stated below...
 
 **▶︎ Data Folder**
 
-Files in Data folder are used to create global variables available in every slug view.
+Files here are used to create global variables available in every slug view.
 Datasheets are useful to import your data from software such as Excel, Numbers or Google Spreadsheets.
 
 ```
@@ -109,7 +109,7 @@ Javascript files are unified and compressed using [Babel](https://babeljs.io/) t
 
 **▶︎ Slug Folder**
 
-Files into Slug Folder will be used to build the site hierarchy. Filenames are _slugs_, used to match media and data files.
+Files here will be used to build the site hierarchy. Filenames are _slugs_, used to match media and data files.
 
 ```
 /slugs
