@@ -36,25 +36,27 @@ Datasheets are useful to import your data from software such as Excel, Numbers o
 /data
 │
 ├─ *.csv
-│  └─ Datasheet are parsed and loopable at {{ data.filename }}.
+│  └─ Datasheet are attached at {{ data.filename }}.
 │
 ├─ *(.json|.yml)
-│  └─ Used to setup options such as 'use_layout' or column parser type.
+│  └─ Options to setup Datasheet parser:
+│         'use_layout' selects a layout to print data rows in pages.
+│         'column_slug' indicates the column used in output's slugs.
+│         'columns' holds columns id to set data type parsing options (string,array)
 │
-└─ [foldername]/
-   ├─ Folders holds data files that will be available as global data.
+└─ dirname/
    │
    ├─ *(.txt)
-   │  └─ Template content available directly at {{ foldername.contents.filename }}.
+   │  └─ Data file attached as variable in {{ contents.filename }}.
    │
-   ├─ *(.md|.markdown)
-   │  └─ Available to be iterated using {{ foldername.contents.filename }}.
+   ├─ *(.md|.markdown) 
+   │  └─ Content file attached at {{ contents.filename }}.
    │
    ├─ *(.webloc|.xml)
-   │  └─ Available to be iterated using {{ foldername.links.filename }}.
+   │  └─ Safari link file attached at {{ links.filename }}.
    │
    └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
-      └─ Available to be iterated using {{ foldername.media.filename }}.
+      └─ Media file URL attached in {{ media.filename }}.
 ```
 
 **▶︎ Layout Folder**
@@ -115,26 +117,30 @@ Template contents support Markdown, text, links, media, among others.
 /slugs
 │
 ├─ *(.html|.liquid) 
-│  ├─ Current page slug are always available at {{ current }}.
-│  └─ «index» files inherit slug name from folder.
+│  ├─ Template views will serve as direct URL pages.
+│  ├─ Filename will search for any matching data file or directory.
+│  └─ Current page slug are always available at {{ current }}.
 │
 ├─ *(.json|.yml)
 │  └─ Data variables are available directly as {{ variables }}.
 │
-└─ [slug]/
+└─ dirname/
+   │
+   │─ *(.html|.liquid) 
+   │  ├─ Template views will serve as sub-folder URL pages.
+   │  └─ Filename will search for any matching data file or directory.
    │
    ├─ *(.txt)
-   │  └─ Template content available directly at {{ contents.filename }}.
+   │  └─ Data file attached as variable in {{ contents.filename }}.
    │
-   ├─ *(.md|.markdown)
-   │  ├─ 
-   │  └─ Available to be iterated using {{ contents.filename }}.
+   ├─ *(.md|.markdown) 
+   │  └─ Content file attached at {{ contents.filename }}.
    │
    ├─ *(.webloc|.xml)
-   │  └─ Available to be iterated using {{ links.filename }}.
+   │  └─ Safari link file attached at {{ links.filename }}.
    │
    └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
-      └─ Available to be iterated using {{ media.filename }}.
+      └─ Media file URL attached in {{ media.filename }}.
 ```
 
 **▶︎ Style Folder**
@@ -145,7 +151,7 @@ Template contents support Markdown, text, links, media, among others.
 styles/
 │
 └─ *(.scss|.sass|.css)
-   └─ Unified style file URL always available in {{ config.stylesLink }}
+   └─ Unified style file URL available in {{ config.stylesLink }}
 ```
 
 ## Getting started
