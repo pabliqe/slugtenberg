@@ -7,11 +7,11 @@ All thanks to the [database-free slug system](#database-free) based on [files an
 
 ## What it can do?
 * **Zero-configuration required**, just start coding.
-* Maintain your site contents manipulating files and folders as data.
-* Use *conditionals* and *iterations* to create your pages dynamically based on input data.
-* Include *layouts* and *partials* to build your pages in reusable small pieces. 
-* Use _spreadsheet as database_ by automatically make pages using a CSV file.
-* Preview your site locally and _watch live file changes_.
+* Maintain site contents modifying _files and folders as data_.
+* Use _conditionals and iterations_ to create pages dynamically based on input data.
+* Include _layouts and partials_ to separate pages in reusable smaller pieces. 
+* Use _spreadsheet as database_ by builiding pages from a CSV file.
+* Preview your site locally and _watch live changes_.
 
 ## Database-Free
 
