@@ -25,7 +25,7 @@ This way, if you have `index.liquid`, you can create an `index.json` or `index.y
 
 ## File & Folder Basics
 
-Each folder has a one or more functions as stated below...
+Each folder serves a different purpose as stated below...
 
 **▶︎ Data Folder**
 
