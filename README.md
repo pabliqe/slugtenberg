@@ -6,7 +6,7 @@ Saves you time by not having to deal with servers, databases and infinite librar
 All of this thanks to the [database-free slug system](#database-free) based on [files and folders](#file--folder-basics) rendering system.
 
 ## What it can do?
-* **Zero-configuration required**. _Just Start Coding™️_.
+* **Zero-configuration required**, just start coding.
 * Maintain your site contents manipulating files and folders as data.
 * Use *conditionals* and *iterations* to create your pages dynamically based on input data.
 * Include *layouts* and *partials* to build your pages in reusable small pieces. 
