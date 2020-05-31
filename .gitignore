@@ -1,13 +1,13 @@
-# OS Files
+# OS
 .DS_Store
 $RECYCLE.BIN
 Desktop.ini
 
-# Node Files
+# Node
 .sass-cache
 .now
 npm-debug.log*
 node_modules
 
-# Slugtenberg Files
+# Slugtenberg
 dist-*
