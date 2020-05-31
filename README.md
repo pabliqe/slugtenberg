@@ -15,13 +15,13 @@ All of this thanks to the [database-free slug system](#database-free) based on [
 
 ## Database-Free
 
-<img src="https://www.dropbox.com/s/3egsya7fpc6ym3v/folders.gif?raw=1" width="640">
-
 Files and folders are the backbones of our slug system. Filenames are used to internally link views, media and information into a unique site URL. Each time you create a page file ending on [Slug folder](#file--folder-basics), Slugtenberg will automatically attach any data or media file that share the same folder and/or file name.
+
+![Animated image showing how duplicating a folder creates a new article](https://www.dropbox.com/s/3egsya7fpc6ym3v/folders.gif?raw=1)
 
 This way, if you have `index.liquid`, you can create an `index.json` or `index.yml` to handle data for that specific page inside. Also you can make global data to be accessed from any page view, by creating these files in your [Data folder](#file--folder-basics).
 
-<img src="https://www.dropbox.com/s/pfwdevz0ywpcxz9/contents.gif?raw=1" width="640">
+![Animated image showing how editin a Text file would update article title](https://www.dropbox.com/s/pfwdevz0ywpcxz9/contents.gif?raw=1)
 
 ## File & Folder Structure
 
