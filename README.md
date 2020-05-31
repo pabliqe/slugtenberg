@@ -44,7 +44,7 @@ Datasheets are useful to import your data from software such as Excel, Numbers o
 │         'column_slug' indicates the column used in output's slugs.
 │         'columns' holds columns id to set data parsing options (type:array)
 │
-└─ dirname/
+└─ /dirname
    │
    ├─ *(.txt)
    │  └─ Data file attached as variable in {{ contents.filename }}.
@@ -87,10 +87,10 @@ Include files are template partials to include in your slug views. [Learn more a
 
 **▶︎ Media Folder**
 
-Media files will be copied to the _dist_ folder. 'assetLink' is a filter to convert any filename into an asset URL.
+Media files will be copied to the `/dist` folder. `assetLink` is a filter to convert any filename into an asset URL.
 
 ```
-media/
+/media
 │
 └─ *
    └─ Can be invoked as {{ 'filename.mov' | assetLink }}.
@@ -98,7 +98,7 @@ media/
 
 **▶︎ Script Folder**
 
-Javascript files are unified and compressed using [Babel](https://babeljs.io/) to bring ES6+ scripting to your slug views.
+Javascript files are unified and compressed using [Babel](https://babeljs.io/) to bring _ES6+_ scripting to your slug views.
 
 ```
 /js
@@ -109,9 +109,7 @@ Javascript files are unified and compressed using [Babel](https://babeljs.io/) t
 
 **▶︎ Slug Folder**
 
-Template files compiles into a site view and match Data files by slug.
-Matched folders will be attached as input data to template view.
-Template contents support Markdown, text, links, media, among others.
+Template files compiles into a site view and match Data files by slug. Matched folders will be attached as input data to template view. Template contents support Markdown, text, links, media, among others.
 
 ```
 /slugs
@@ -124,7 +122,7 @@ Template contents support Markdown, text, links, media, among others.
 ├─ *(.json|.yml)
 │  └─ Data variables are available directly as {{ variables }}.
 │
-└─ dirname/
+└─ /dirname
    │
    │─ *(.html|.liquid) 
    │  ├─ Template views will serve as sub-folder URL pages.
@@ -157,7 +155,7 @@ styles/
 ## Getting started
 This instructions assume you have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Node](https://nodejs.org/es/download/) installed on your machine.
 
-1. Open your favorite Terminal (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
+1. (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ Open your favorite terminal
 2. Create or access an empty directory to start.
 ```
 cd myproject
@@ -183,9 +181,10 @@ npm run start
 http://localhost:3000
 ```
 8. Enjoy
-( ͡ᵔ ͜ʖ ͡ᵔ )
-
-Once you are ready to publish your site, production build will output the files compressed and optimized into your `/dist` folder. Just upload it to your server or try a serverless option such as [Now/Vercel CLI](https://vercel.com/docs/cli#getting-started) or [GitHub Pages](https://pages.github.com/) to open your site to public.
+9. ( ͡ᵔ ͜ʖ ͡ᵔ )
+10. Once you are ready to publish your site.
 ```
 npm run prod
 ```
+
+_Production_ build will output the files compressed and optimized into your `/dist` folder. Just upload it to your server or try a serverless option such as [Now/Vercel CLI](https://vercel.com/docs/cli#getting-started) or [GitHub Pages](https://pages.github.com/) to open your site to public.
