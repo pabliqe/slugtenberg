@@ -24,8 +24,7 @@ task('build', series(
 	'build:views',
 	'build:styles',
 	'build:scripts',
-	'build:media',
-	'server:reload'
+	'build:media'
 ))
 
 task('watch', () => {
