@@ -3,19 +3,19 @@ Slugtenberg was designed to compile *clean and quick* handy websites from scratc
 
 Saves you time by not having to deal with servers, databases and infinite library packages.
 
-All of this thanks to the [database-free slug system](#database-free) based on [files and folders](#file--folder-basics) rendering system.
+All thanks to the [database-free slug system](#database-free) based on [files and folders](#file--folder-basics) rendering system.
 
 ## What it can do?
 * **Zero-configuration required**, just start coding.
 * Maintain your site contents manipulating files and folders as data.
 * Use *conditionals* and *iterations* to create your pages dynamically based on input data.
 * Include *layouts* and *partials* to build your pages in reusable small pieces. 
-* Use spreadsheets as database by automatically make pages using a CSV file.
+* Use _spreadsheet as database_ by automatically make pages using a CSV file.
 * Preview your site locally and watch for file changes.
 
 ## Database-Free
 
-Files and folders are the backbones of our slug system. Filenames are used to internally link Views, Media and information into a unique site URL. Each time you create a new file in the [Slug Folder](#file--folder-basics), Slugtenberg will automatically attach any data or media file that share the same folder and/or file name.
+Files and folders are the backbones of the slug system. Filenames are used to match internally views, media and data files into a site URL. Each time you create a new file in the [Slug Folder](#file--folder-basics), Slugtenberg will automatically attach any media or data file that shares the same folder and/or file name.
 
 ![Animated image showing how duplicating a folder creates a new article](https://www.dropbox.com/s/3egsya7fpc6ym3v/folders.gif?raw=1)
 
