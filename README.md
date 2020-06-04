@@ -15,11 +15,17 @@ All thanks to the [database-free slug system](#database-free) based on [files an
 
 ## Database-Free
 
-Files and folders are the backbones of the slug system. Filenames are used to match internally views, media and data files into a site URL. Each time you create a new file in the [Slug Folder](#file--folder-basics), Slugtenberg will automatically attach any media or data file that shares the same folder and/or file name.
+Files and folders are the backbones of the slug system. Filenames are used to match internally views, media and data files into a page URL.
+
+Each time you create a new file in the [Slug Folder](#file--folder-basics), Slugtenberg will automatically attach any media or data file that shares the same folder and/or file name.
+
+↓ In this example you can see how _duplicating a folder_, generates new site content.
 
 <img alt="Animated image showing how duplicating a folder creates a new article" src="https://www.dropbox.com/s/3egsya7fpc6ym3v/folders.gif?raw=1" width="400">
 
-This way, if you have `index.liquid`, you can create an `index.json` or `index.yml` to handle data for that specific page inside. Also you can make global data to be accessed from any page view, by creating these files in your [Data Folder](#file--folder-basics).
+This way, you can create `index.json` or `index.yml` to handle data for your `index.liquid`. Also you can make global data by creating these files in your [Data Folder](#file--folder-basics) to be accessed from every page view.
+
+↓ Here you can see how _editing a text file_, updates the site content.
 
 <img alt="Animated image showing how editin a Text file would update article title" src="https://www.dropbox.com/s/pfwdevz0ywpcxz9/contents.gif?raw=1" width="400">
 
