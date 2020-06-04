@@ -115,18 +115,14 @@ Files here will be used to build the site hierarchy. Filenames are _slugs_, used
 /slugs
 │
 ├─ *(.html|.liquid) 
-│  ├─ Template views will serve as direct URL pages.
-│  ├─ Filename will search for any matching data file or directory.
-│  └─ Current page slug are always available at {{ current }}.
+│  ├─ Template views will serve as direct pages URL.
+│  ├─ Current page slug is always available at {{ current }}.
+│  └─ File slug will attach matching data files or folders in this folder.
 │
 ├─ *(.json|.yml)
 │  └─ Data variables are available directly as {{ variables }}.
 │
 └─ /dirname
-   │
-   │─ *(.html|.liquid) 
-   │  ├─ Template views will serve as sub-folder URL pages.
-   │  └─ Filename will search for any matching data file or directory.
    │
    ├─ *(.txt)
    │  └─ Data file attached as variable in {{ contents.filename }}.
@@ -137,8 +133,12 @@ Files here will be used to build the site hierarchy. Filenames are _slugs_, used
    ├─ *(.webloc)
    │  └─ Safari link file attached at {{ links.filename }}.
    │
-   └─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)
-      └─ Media file URL attached in {{ media.filename }}.
+   ├─ *(.jpg|.jpeg|.png|.gif|.ico|.mp3|.mp4|.oga|.ogg|.wav|.webm)ing
+   │  └─ Media file URL attached in {{ media.filename }}.
+   │  
+   └─ *(.html|.liquid) 
+      ├─ Other template views will serve as internal pages URL.
+      └─ File slug also searchs for data files and folders.
 ```
 
 **▶︎ Style Folder**
