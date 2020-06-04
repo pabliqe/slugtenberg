@@ -1,9 +1,5 @@
 # Slugtenberg
-Slugtenberg was designed to compile _clean and quick_ handy websites from scratch.
-
-Saves you time by not having to deal with servers, databases and packages.
-
-All thanks to the [database-free slug system](#database-free) based on [files and folders](#file--folder-basics) rendering system.
+Slugtenberg was designed to compile _clean and quick_ websites from scratch. Saves you time by not having to deal with servers, databases and packages. All thanks to the [database-free slug system](#database-free) based on [files and folders](#file--folder-basics) rendering system.
 
 ## What it can do?
 * **Zero-configuration required**, just start coding.
@@ -15,9 +11,7 @@ All thanks to the [database-free slug system](#database-free) based on [files an
 
 ## Database-Free
 
-Files and folders are the backbones of the slug system. Filenames are used to match internally views, media and data files into a page URL.
-
-Each time you create a new file in the [Slug Folder](#file--folder-basics), Slugtenberg will automatically attach any media or data file that shares the same folder and/or file name.
+Files and folders are the backbones of the slug system. Filenames are used to match internally views, media and data files into a page URL. Each time you create a new file in the [Slug Folder](#file--folder-basics), it will automatically attach any media or data file that shares the same folder and/or file name.
 
 ↓ In this example you can see how _duplicating a folder_, generates new site content.
 
@@ -31,11 +25,11 @@ This way, you can create `index.json` or `index.yml` to handle data for your `in
 
 ## File & Folder Basics
 
-Each folder serves a different purpose as stated below...
+_Each folder serves a different purpose as stated below..._
 
 **▶︎ Data Folder**
 
-Files here are used to create global variables available in every slug view.
+Files here are used to create _global variables_ available in every _slug_ view.
 Datasheets are useful to import your data from software such as Excel, Numbers or Google Spreadsheets.
 
 ```
@@ -67,7 +61,7 @@ Datasheets are useful to import your data from software such as Excel, Numbers o
 
 **▶︎ Layout Folder**
 
-Layout files works are base templates to build your slug views on top of. [Learn more about partials on LiquidJS](https://liquidjs.com/tutorials/partials-and-layouts.html)
+Layout files works are base templates to build your _slug_ views on top of. [Learn more about partials on LiquidJS](https://liquidjs.com/tutorials/partials-and-layouts.html)
 
 ```
 /layouts
@@ -79,7 +73,7 @@ Layout files works are base templates to build your slug views on top of. [Learn
 
 **▶︎ Include Folder**
 
-Include files are template partials to include in your slug views. [Learn more about partials on LiquidJS](https://liquidjs.com/tutorials/partials-and-layouts.html)
+Include files are template partials to include in your _slug_ views. [Learn more about partials on LiquidJS](https://liquidjs.com/tutorials/partials-and-layouts.html)
 
 ```
 /includes
@@ -93,7 +87,7 @@ Include files are template partials to include in your slug views. [Learn more a
 
 **▶︎ Media Folder**
 
-Media files will be copied to the `/dist` folder. `assetLink` is a filter to converts any filename into an asset URL.
+Media files will be copied to the `/dist` folder. The filter `assetLink` converts any _filename_ into an asset URL.
 
 ```
 /media
@@ -104,7 +98,7 @@ Media files will be copied to the `/dist` folder. `assetLink` is a filter to con
 
 **▶︎ Script Folder**
 
-Javascript files are unified and compressed using [Babel](https://babeljs.io/) to bring ES6+ scripting to your slug views.
+Javascript files are unified and compressed using [Babel](https://babeljs.io/) to bring ES6+ scripting to your _slug_ views.
 
 ```
 /js
@@ -149,7 +143,7 @@ Files here will be used to build the site hierarchy. Filenames are _slugs_, used
 
 **▶︎ Style Folder**
 
-[SASS](https://sass-lang.com/guide) stylesheets are unified and compressed into CSS to quickly style your slug views.
+[SASS](https://sass-lang.com/guide) stylesheets are unified and compressed into CSS to quickly style your _slug_ views.
 
 ```
 styles/
