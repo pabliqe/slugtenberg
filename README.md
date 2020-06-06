@@ -156,49 +156,14 @@ styles/
 This instructions assume you have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Node](https://nodejs.org/es/download/) installed on your machine.
 
 1. (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ Open your favorite terminal
-2. Create or access an empty directory to start.
-
-`
-cd myproject
-`
-
-3. Download and copy this repository.
-
-`
-curl -sL https://api.github.com/repos/pabliqe/slugtenberg/tarball | tar xzC . --strip 1
-`
-
-4. Install required packages.
-
-`
-npm install -D
-`
-
-5. Build your demo project.
-
-`
-npm run build
-`
-
-6. Get your site up and running.
-
-`
-npm run start
-`
-
-7. Browser will popup and you are ready to start coding.
-
-`
-http://localhost:3000
-`
-
-8. Enjoy
-9. ( ͡ᵔ ͜ʖ ͡ᵔ )
-10. Once you are ready to publish your site.
-
-`
-npm run prod
-`
+2. `cd myproject` access an empty directory to start.
+3. `curl -sL https://api.github.com/repos/pabliqe/slugtenberg/tarball | tar xzC . --strip 1` will download this repository locally.
+4. `npm install -D` install required packages.
+5. `npm run build` build your demo project.
+6. `npm run start` gets your site up and running.
+7. `http://localhost:3000` browser will popup and you are ready to start coding.
+9. ( ͡ᵔ ͜ʖ ͡ᵔ ) Enjoy
+10. `npm run prod` once you are ready to publish your site.
 
 Production build will output the files compressed and optimized into your `/dist` folder. Just upload it to your server or try a serverless option such as [Now/Vercel CLI](https://vercel.com/docs/cli#getting-started) or [GitHub Pages](https://pages.github.com/) to open your site to public.
 
