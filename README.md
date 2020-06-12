@@ -1,5 +1,5 @@
 # Slugtenberg
-Slugtenberg was designed to compile _clean and quick_ websites from scratch. Saves you time by not having to deal with servers, databases and packages. All thanks to the [database-free slug system](#database-free) based on [files and folders](#file--folder-basics) rendering system.
+Slugtenberg was designed to compile _clean and quick_ websites from scratch. Saves you time by not having to deal with servers, databases and packages. All thanks to the [database-free slug system](#database-free) based on [files and folders](#files--folders-basics) rendering system.
 
 ## What it can do?
 * **Zero-configuration required**, just start coding.
@@ -11,26 +11,22 @@ Slugtenberg was designed to compile _clean and quick_ websites from scratch. Sav
 
 ## Database-Free
 
-Files and folders are the backbones of the slug system. Filenames are used to match internally views, media and data files into a page URL. Each time you create a new file in the [Slug Folder](#file--folder-basics), it will automatically attach any media or data file that shares the same folder and/or file name.
+Files and folders are the backbones of the slug system. Filenames are used to match internally views, media and data files into a page URL.
 
-↓ In this example you can see how _duplicating a folder_, generates new site content.
+Every new file and folder inside [Slug folder](#slug--views) will automatically attach media and data files sharing the same slug name. Allowing you to create pages by duplicating files and folders.
 
 <img alt="Animated image showing how duplicating a folder creates a new article" src="https://www.dropbox.com/s/3egsya7fpc6ym3v/folders.gif?raw=1" width="400">
 
-This way, you can create `index.json` or `index.yml` to handle data for your `index.liquid`. Also you can make global data by creating these files in your [Data Folder](#file--folder-basics) to be accessed from every page view.
-
-↓ Here you can see how _editing a text file_, updates the site content.
+This way `index.json`, `index.yml`, `index/title.txt` will handle data for `index` slug view. Global data is handled by files in your [Data folder](#global-data-files) making it accessible from any slug or partial view.
 
 <img alt="Animated image showing how editin a Text file would update article title" src="https://www.dropbox.com/s/pfwdevz0ywpcxz9/contents.gif?raw=1" width="400">
 
-## File & Folder Basics
+# Files & Folders Basics
 
-_Each folder serves a different purpose as stated below..._
+## Global Data Files
 
-**▶︎ Data Folder**
-
-Files here are used to create _global variables_ available in every _slug_ view.
-Datasheets are useful to import your data from software such as Excel, Numbers or Google Spreadsheets.
+Files here are used to create global variables available in every slug or partial view.
+Datasheets are useful to import your big amount of data from any spreadsheet editor.
 
 ```
 /data
@@ -59,9 +55,9 @@ Datasheets are useful to import your data from software such as Excel, Numbers o
       └─ Media file URL attached in {{ media.filename }}.
 ```
 
-**▶︎ Layout Folder**
+## View Partials
 
-Layout files works are base templates to build your _slug_ views on top of. [Learn more about partials on LiquidJS](https://liquidjs.com/tutorials/partials-and-layouts.html)
+Layout files works are base templates to build your slug views on top of. [Learn more about layouts on LiquidJS](https://liquidjs.com/tutorials/partials-and-layouts.html)
 
 ```
 /layouts
@@ -71,9 +67,7 @@ Layout files works are base templates to build your _slug_ views on top of. [Lea
    └─ also renders datasheets when 'use_layout' is present.
 ```
 
-**▶︎ Include Folder**
-
-Include files are template partials to include in your _slug_ views. [Learn more about partials on LiquidJS](https://liquidjs.com/tutorials/partials-and-layouts.html)
+Include files are template partials to include in your slug views. [Learn more about includes on LiquidJS](https://liquidjs.com/tutorials/partials-and-layouts.html)
 
 ```
 /includes
@@ -85,7 +79,7 @@ Include files are template partials to include in your _slug_ views. [Learn more
    └─ Other files can also be invoked with the extension as {% include 'filename.svg' %}.
 ```
 
-**▶︎ Media Folder**
+## Media & Asset Files
 
 Media files will be copied to the `/dist` folder. The filter `assetLink` converts any _filename_ into an asset URL.
 
@@ -96,9 +90,17 @@ Media files will be copied to the `/dist` folder. The filter `assetLink` convert
    └─ Can be invoked as {{ 'filename.mov' | assetLink }}.
 ```
 
-**▶︎ Script Folder**
+[SASS](https://sass-lang.com/guide) stylesheets are unified and compressed into CSS to quickly style your slug views.
 
-Javascript files are unified and compressed using [Babel](https://babeljs.io/) to bring ES6+ scripting to your _slug_ views.
+```
+/styles
+│
+└─ *(.scss|.sass|.css)
+   └─ Unified style file URL available in {{ config.stylesLink }}
+```
+
+
+Javascript files are unified and compressed using [Babel](https://babeljs.io/) to bring ES6+ scripting to your slug views.
 
 ```
 /js
@@ -107,7 +109,7 @@ Javascript files are unified and compressed using [Babel](https://babeljs.io/) t
    └─ Unified script file URL always available in {{ config.scriptsLink }}.
 ```
 
-**▶︎ Slug Folder**
+## Slug views
 
 Files here will be used to build the site hierarchy. Filenames are _slugs_, used to match media and data files.
 
@@ -141,18 +143,7 @@ Files here will be used to build the site hierarchy. Filenames are _slugs_, used
       └─ File slug also searchs for data files and folders.
 ```
 
-**▶︎ Style Folder**
-
-[SASS](https://sass-lang.com/guide) stylesheets are unified and compressed into CSS to quickly style your _slug_ views.
-
-```
-styles/
-│
-└─ *(.scss|.sass|.css)
-   └─ Unified style file URL available in {{ config.stylesLink }}
-```
-
-## Getting started
+# Getting started
 This instructions assume you have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Node](https://nodejs.org/es/download/) installed on your machine.
 
 1. (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ Open your favorite terminal
