@@ -1,0 +1,9 @@
+# OS
+.DS_Store
+$RECYCLE.BIN
+Desktop.ini
+
+# Slugtenberg
+dist
+dist-*
+src

@@ -1,0 +1,7 @@
+steps:
+  - uses: actions/checkout@master
+
+  - uses: codfish/semantic-release-action@master
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
