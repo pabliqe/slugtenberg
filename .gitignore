@@ -11,3 +11,5 @@ node_modules
 
 # Slugtenberg
 dist-*
+dist
+slugtenberg.yml
