@@ -19,8 +19,6 @@ This way `index.json`, `index.yml`, `index/title.txt` will handle data for `inde
 
 <img alt="Animated image showing how editing a Text file would update article title" src="https://www.dropbox.com/s/pfwdevz0ywpcxz9/contents.gif?raw=1">
 
---
-
 # Getting started
 This instructions assume you have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Node](https://nodejs.org/es/download/) installed on your machine.
 
