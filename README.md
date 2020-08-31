@@ -36,8 +36,6 @@ Production build will output the files compressed and optimized into your `/dist
 
 The [Asset folder](#file--folder-basics) can be distributed separately via CDN by setting `cdnURL` in config file.
 
---
-
 # Files & Folders Basics
 
 ## Global Data Files
