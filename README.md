@@ -17,7 +17,7 @@ Files and folders are the backbones of the slug system. Filenames are used to ma
 
 This way `index.json`, `index.yml`, `index/title.txt` will handle data for `index` slug view. Global data is handled by files in your [Data folder](#global-data-files) making it accessible from any slug or partial view.
 
-<img alt="Animated image showing how editing a Text file would update article title" src="https://www.dropbox.com/s/pfwdevz0ywpcxz9/contents.gif?raw=1" width="400">
+<img alt="Animated image showing how editing a Text file would update article title" src="https://www.dropbox.com/s/pfwdevz0ywpcxz9/contents.gif?raw=1">
 
 --
 
