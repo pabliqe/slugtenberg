@@ -19,9 +19,7 @@ Every new file and folder inside `src/slug` folder will convert to public URL an
 
 <img alt="Animated image showing how duplicating a folder creates a new article" src="https://www.dropbox.com/s/3egsya7fpc6ym3v/folders.gif?raw=1">
 
-So take this for example: `testing/intro.md` or `testing/data.yml` files will handle data for `testing/index.html` view.
-
-On the other hand, global data is handled by `src/data` folder making media and data available to *any view*.
+So take this for example: `testing/intro.md` or `testing/data.yml` files will handle data for `testing/index.html` view. On the other hand, global data will be handled by `src/data` folder making media and data available to *any view*.
 
 # Getting started
 This instructions assume you have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Node](https://nodejs.org/es/download/) installed on your machine.
