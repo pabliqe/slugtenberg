@@ -27,6 +27,26 @@ const argv = yargs
             })        
         }
     })
+    .command({
+        command: 'build',
+        desc: 'Build project',
+        builder: (yargs) => {
+           return yargs.example('$0 build -c slugtenberg.yml', 'build project using the given config file')
+            .alias('c', 'config')
+            .nargs('c', 1)
+            .default('c','slugtenberg.yml')
+            .describe('c', 'configuration file')
+            .demandOption(['c'])
+            .help('help')
+            .wrap(null)
+        },
+        handler: (argv) => {
+            require('../gulpfile') // import the gulp file
+            process.nextTick(async function(){
+                await gulp.task('build')()
+            })        
+        }
+    })
     .help('help')
     .wrap(null)
     .argv
@@ -36,5 +56,6 @@ function checkCommands (yargs, argv, numRequired) {
         yargs.showHelp()
     }
 }
+
 checkCommands(yargs, argv, 1)
 
