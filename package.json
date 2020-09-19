@@ -42,11 +42,6 @@
 		"yaml": "^1.9.2"
 	},
 	"scripts": {
-		"prod": "gulp build",
-		"build": "gulp build --dev",
-		"start": "gulp server:start --dev",
-		"watch": "gulp watch --dev",
-		"clean": "gulp clean",
 		"commit": "git-cz"
 	},
 	"config": {

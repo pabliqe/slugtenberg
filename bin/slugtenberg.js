@@ -18,6 +18,7 @@ const argv = yargs
             .wrap(null)
         },
         handler: (argv) => {
+            process.env.NODE_ENV = 'development';
             require('../gulpfile') // import the gulp file
             process.nextTick(async function(){
                 await gulp.task('build')()
@@ -41,6 +42,28 @@ const argv = yargs
             .wrap(null)
         },
         handler: (argv) => {
+            process.env.NODE_ENV = 'development';
+            require('../gulpfile') // import the gulp file
+            process.nextTick(async function(){
+                await gulp.task('build')()
+            })        
+        }
+    })
+    .command({
+        command: 'export',
+        desc: 'Build project ready to deploy',
+        builder: (yargs) => {
+           return yargs.example('$0 build -c slugtenberg.yml', 'build project using the given config file')
+            .alias('c', 'config')
+            .nargs('c', 1)
+            .default('c','slugtenberg.yml')
+            .describe('c', 'configuration file')
+            .demandOption(['c'])
+            .help('help')
+            .wrap(null)
+        },
+        handler: (argv) => {
+            process.env.NODE_ENV = 'production';
             require('../gulpfile') // import the gulp file
             process.nextTick(async function(){
                 await gulp.task('build')()
