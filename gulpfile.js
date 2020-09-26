@@ -5,20 +5,27 @@ version: 		0.0.1
 last_changes:	.
 —————————————————————————————————————————————————————————
 */
-const {task,watch,series} = require('gulp')
-const lib = require('require-dir')('./lib')
+const {task,series} = require('gulp')
+const config = require('./lib/config')
+const server = require('./lib/server')
+const styles = require('./lib/styles')
+const scripts = require('./lib/scripts')
+const media = require('./lib/media')
+const views = require('./lib/views')
+const parser = require('./lib/parser')
+const watch = require('./lib/watch')
 
 /* ————————————————— INTIIALIZERS —————————————————— */
 
-task('server:start', lib.server.start);
-task('server:reload', lib.server.reload);
+task('server:start', server.start);
+task('server:reload', server.reload);
 
-task('build:views', lib.views);
-task('build:styles', lib.styles);
-task('build:scripts', lib.scripts);
-task('build:media', lib.media);
+task('build:views', views);
+task('build:styles', styles);
+task('build:scripts', scripts);
+task('build:media', media);
 
-task('clean', lib.parser.clean);
+task('clean', parser.clean);
 
 task('build', series(
 	'build:views',
@@ -27,4 +34,4 @@ task('build', series(
 	'build:media'
 ))
 
-task('watch', lib.watch)
+task('watch', watch)

@@ -25,7 +25,7 @@ const argv = yargs
                 gulp.task('server:start')(()=>{
                    gulp.task('watch')()
                 })
-            })        
+            })
         }
     })
     .command({
@@ -46,11 +46,11 @@ const argv = yargs
             require('../gulpfile') // import the gulp file
             process.nextTick(async function(){
                 await gulp.task('build')()
-            })        
+            })
         }
     })
     .command({
-        command: 'export',
+        command: 'publish',
         desc: 'Build project ready to deploy',
         builder: (yargs) => {
            return yargs.example('$0 build -c slugtenberg.yml', 'build project using the given config file')
@@ -67,7 +67,7 @@ const argv = yargs
             require('../gulpfile') // import the gulp file
             process.nextTick(async function(){
                 await gulp.task('build')()
-            })        
+            })
         }
     })
     .help('help')

@@ -1,0 +1,11 @@
+{
+	"name": "slugtenberg-app",
+	"main": "index.html",
+	"window": {
+		"title": "Slugtenberg App",
+		"toolbar": true,
+		"width": 800,
+		"height": 400,
+		"position": "center"
+	}
+  }

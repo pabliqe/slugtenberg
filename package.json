@@ -1,6 +1,5 @@
 {
 	"name": "slugtenberg",
-	"homepage": "https://github.com/owner/project#readme",
 	"license": "MIT",
 	"version": "0.0.1",
 	"main": "bin/slugtenberg.js",
@@ -10,10 +9,15 @@
 		"url": "https://github.com/pabliqe/slugtenberg"
 	},
 	"devDependencies": {
+		"electron": "^10.1.2",
+		"electron-positioner": "^4.1.0",
+		"electron-rebuild": "^2.0.3"
+	},
+	"dependencies": {
 		"@babel/core": "^7.8.6",
 		"@babel/preset-env": "^7.8.6",
 		"@tuanpham-dev/gulp-liquidjs": "git+https://github.com/pabliqe/gulp-liquidjs.git",
-		"browser-sync": "^2.26.7",
+		"browser-sync": "^2.26.12",
 		"chalk": "^4.0.0",
 		"csv-parse": "^4.9.0",
 		"cz-conventional-changelog": "^3.2.0",
@@ -36,13 +40,20 @@
 		"markdown-it": "^10.0.0",
 		"node-sass": "^4.14.1",
 		"path": "^0.12.7",
-		"require-dir": "^1.2.0",
 		"through2": "^3.0.1",
 		"xml2json": "^0.12.0",
 		"yaml": "^1.9.2",
 		"yargs": "^15.3.1"
 	},
 	"scripts": {
+		"publish": "gulp build",
+		"build": "gulp build --dev",
+		"start": "gulp server:start --dev",
+		"watch": "gulp watch --dev",
+		"clean": "gulp clean",
+		"open": "electron ./app/main.js",
+		"nw-open": "nw /nwapp/src",
+		"nw-export": "nwbuild --platforms osx64 --buildDir /nwapp/dist /nwapp/src",
 		"commit": "git-cz"
 	},
 	"config": {

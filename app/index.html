@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Slugtenberg Desktop App</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+	<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+	<style>
+		body {
+			background: white;
+			color: black;
+			font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+
+			@media (prefers-color-scheme: dark) {
+				background: #000;
+				color: white;
+			}
+		}
+	</style>
+	<script type='text/javascript'>
+		// In such way we connect ipcRenderer to our page.
+		window.ipcRenderer = require('electron').ipcRenderer;
+		// The ipcRenderer module provides a few methods so you can send events from the render process (web page) to the main process.
+	</script>
+  </head>
+
+  <!-- no-drag option makes our new window non-draggable -->
+  <body style='-webkit-app-region: no-drag'>
+    <h1>Hello World!</h1>
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+	and Electron <script>document.write(process.versions.electron)</script>.
+	<hr>
+	<button onclick="close()">X</button>
+	<button onclick="build()">build</button>
+	<button onclick="start()">start</button>
+	<button onclick="publish()">publish</button>
+
+    <script type='text/javascript'>
+      function close() {
+		ipcRenderer.send('quit-app');
+	  }
+
+	  function build() {
+		  ipcRenderer.send('build')
+	  }
+
+	  function start() {
+		  ipcRenderer.send('start')
+	  }
+
+	  function publish() {
+		  ipcRenderer.send('publish')
+	  }
+    </script>
+  </body>
+</html>
