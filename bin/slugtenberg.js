@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 const yargs = require('yargs')
-const gulp = require('gulp')
 
 const argv = yargs
     .usage('Usage: $0 <command> [options]')
@@ -8,27 +7,39 @@ const argv = yargs
         command: 'start',
         desc: 'Start project',
         builder: (yargs) => {
-           return yargs.example('$0 start -c slugtenberg.yml', 'loads project using the given config file')
-            .alias('c', 'config')
-            .nargs('c', 1)
-            .default('c','slugtenberg.yml')
-            .describe('c', 'configuration file')
-            .demandOption(['c'])
+           return yargs
+           
+            .example('$0 start -p /Users/your_user/your_site', 'Loads your project remotely from other source')
+
+            .alias('p', 'path')
+            .nargs('p', 1)
+            .default('p', '.')
+            .describe('p', 'site source path')
+            
             .help('help')
             .wrap(null)
         },
         handler: (argv) => {
-            process.env.NODE_ENV = 'development';
-            require('../gulpfile') // import the gulp file
+            console.log('!!!!')
+            
+            let { build, start, watch } = require('../gulpfile') // import the gulp file
+
+
+            //process.env.NODE_ENV = 'development';
             process.nextTick(async function(){
-                await gulp.task('build')()
-                gulp.task('server:start')(()=>{
+                /*await gulp.task('build')()
+                gulp.task('start')(()=>{
                    gulp.task('watch')()
+                })*/
+
+                await build()
+                start(() => {
+                    watch()
                 })
             })
         }
     })
-    .command({
+    /*.command({
         command: 'build',
         desc: 'Build project',
         builder: (yargs) => {
@@ -42,10 +53,10 @@ const argv = yargs
             .wrap(null)
         },
         handler: (argv) => {
-            process.env.NODE_ENV = 'development';
-            require('../gulpfile') // import the gulp file
+            //process.env.NODE_ENV = 'development';
             process.nextTick(async function(){
-                await gulp.task('build')()
+                //await gulp.task('build')()
+                build()
             })
         }
     })
@@ -63,13 +74,13 @@ const argv = yargs
             .wrap(null)
         },
         handler: (argv) => {
-            process.env.NODE_ENV = 'production';
-            require('../gulpfile') // import the gulp file
+            //process.env.NODE_ENV = 'production';
             process.nextTick(async function(){
-                await gulp.task('build')()
+                //await gulp.task('build')()
+                publish()
             })
         }
-    })
+    })*/
     .help('help')
     .wrap(null)
     .argv
