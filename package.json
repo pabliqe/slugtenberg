@@ -3,16 +3,12 @@
 	"license": "MIT",
 	"version": "0.0.1",
 	"main": "bin/slugtenberg.js",
-	"description": "gulpfile.js",
+	"description": "",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/pabliqe/slugtenberg"
 	},
-	"devDependencies": {
-		"electron": "^10.1.2",
-		"electron-positioner": "^4.1.0",
-		"electron-rebuild": "^2.0.3"
-	},
+	"devDependencies": {},
 	"dependencies": {
 		"@babel/core": "^7.8.6",
 		"@babel/preset-env": "^7.8.6",
@@ -48,13 +44,12 @@
 	"scripts": {
 		"publish": "gulp build",
 		"build": "gulp build --dev",
-		"start": "gulp server:start --dev",
+		"start": "gulp start --dev",
 		"watch": "gulp watch --dev",
-		"clean": "gulp clean",
-		"open": "electron ./app/main.js",
-		"nw-open": "nw /nwapp/src",
-		"nw-export": "nwbuild --platforms osx64 --buildDir /nwapp/dist /nwapp/src",
-		"commit": "git-cz"
+		"clean": "gulp clean"
+	},
+	"bin": {
+		"slugtenberg": "./bin/slugtenberg.js"
 	},
 	"config": {
 		"commitizen": {
