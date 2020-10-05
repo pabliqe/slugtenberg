@@ -20,10 +20,8 @@ const argv = yargs
             .wrap(null)
         },
         handler: (argv) => {
-            console.log('!!!!')
             
-            let { build, start, watch } = require('../gulpfile') // import the gulp file
-
+            const { build, start, watch } = require('../gulpfile') // import the gulp file
 
             //process.env.NODE_ENV = 'development';
             process.nextTick(async function(){
