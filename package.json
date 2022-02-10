@@ -34,7 +34,7 @@
 		"gulp-uglify": "^3.0.2",
 		"jshint": "^2.11.0",
 		"markdown-it": "^10.0.0",
-		"node-sass": "^4.14.1",
+		"node-sass": "^7.0.0",
 		"path": "^0.12.7",
 		"require-dir": "^1.2.0",
 		"through2": "^3.0.1",
